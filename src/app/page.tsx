@@ -1,6 +1,9 @@
 import Link from "next/link"
 import Nav from "./components/Nav"
 import styles from './home.module.scss'
+import { HomeWorkList } from "./lists/HomeWork"
+import HomeWorkSection from "./components/HomeWorkSection"
+import { HomeWorkListType } from "./lists/HomeWork"
 
 export default function Home() {
   return (
@@ -20,6 +23,13 @@ export default function Home() {
             <video className={styles.home__main__right__video} autoPlay loop muted>
               <source src="https://static.grammarly.com/assets/files/8a0dda99e354dd8552833ffaf47992a7/llama_video.mp4" type="video/mp4"/>
             </video>
+          </div>
+      </div>
+      <div className={styles.home__work}>
+          <h3 className={styles.home__work__heading}>Works Where You Do</h3>
+          <p className={styles.home__work__info}>Get suggestions from Grammarly while you write in desktop applications and sites across the web—as you move between apps, social media, documents, messages, and emails.</p>
+          <div className={styles.home__work__sections}>
+            {HomeWorkList.map(section=><HomeWorkSection data={section}/>)}
           </div>
       </div>
     </div>
