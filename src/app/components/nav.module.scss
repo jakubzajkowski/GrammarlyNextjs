@@ -1,0 +1,140 @@
+$mobile: 950px;
+$color: rgb(74, 185, 148);
+.nav{
+    width: 95%;
+    margin: 1rem auto 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.5rem;
+    border-bottom: solid 1px rgb(151, 151, 151);
+    font-size: 0.9rem;
+}
+.nav__left{
+    display: flex;
+    width: 65%;
+    align-items: center;
+    justify-content: space-between;
+    @media(max-width: $mobile) {
+        width: 60%;
+    }
+}
+.nav__option{
+    @media(max-width: $mobile) {
+        display: none;
+    }
+}
+.nav__right{
+    display: flex;
+    width: 30%;
+    justify-content: center;
+    @media(max-width: $mobile) {
+        width: 20%;
+    }
+}
+.nav__logo{
+    width: 30px;
+    height: 30px;
+    display: inline;
+    border-radius: 10rem;
+    background-color: aquamarine;
+    fill: white;
+    padding: 0.3rem;
+    margin: 0 0.5rem 0 0.5rem;
+    @media(max-width:$mobile) {
+        width: 25px;
+        height: 25px;
+    }
+}
+.nav__signup{
+    margin: 0 3rem;
+    padding: 0.5rem;
+    cursor: pointer;
+    text-align: center;
+    font-weight: bold;
+    @media(max-width: $mobile) {
+        display: none;
+    }
+}
+.nav__register{
+    padding: 0.5rem;
+    border-radius: 0.5rem;
+    background-color: $color;
+    cursor: pointer;
+    text-align: center;
+    color: white;
+    @media(max-width: $mobile) {
+        display: none;
+    }
+}
+
+.nav__mobile__bars{
+    width: 25px;
+    height: 25px;
+    display: none;
+    margin: 0 0 0.5rem 0;
+    fill: black;
+    @media(max-width:$mobile) {
+        display: block;
+    }
+}
+.nav__mobile__container{
+    position: fixed;
+    width: 100%;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    display: flex;
+    justify-content: center;
+    background-color: white;
+}
+.nav__mobile__options{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    text-align: center;
+}
+.nav__mobile__option{
+    margin: 2rem 0 2rem 0;
+}
+.nav__mobile__register{
+    margin: 2rem 0 0.2rem 0;
+    padding: 0.5rem;
+    background-color: $color;
+    font-size: 0.9rem;
+    border: solid 1px $color;
+    color: white;
+}
+.nav__mobile__login{
+    margin: 0.2rem 0 2rem 0;
+    padding: 0.5rem;
+    background-color: white;
+    border: solid 1px $color;
+    font-size: 0.9rem;
+    color: $color;
+}
+.nav__mobile__close{
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 35px;
+    height: 35px;
+    margin: 1.2rem 2rem;
+}
+.nav__mobile__logo{
+    width: 30px;
+    height: 30px;
+    display: inline;
+    border-radius: 10rem;
+    background-color: aquamarine;
+    fill: white;
+    padding: 0.3rem;
+    margin: 0 0.5rem 0 0.5rem;
+}
+.nav__mobile__logo__container{
+    position: absolute;
+    top: 0;
+    left: 0;
+    margin: 1.5rem 1rem;
+}
