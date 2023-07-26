@@ -1,0 +1,30 @@
+$color: rgb(74, 185, 148);
+$mobile: 950px;
+
+.footer__container{
+    background-color: rgb(241, 240, 248);
+    padding: 3rem;
+    @media(max-width: $mobile) {
+        padding: 5rem;
+    }
+    .footer{
+        width: 55%;
+        display: flex;
+        justify-content: space-between;
+        margin: auto;
+        font-size: 0.8rem;
+        @media(max-width: $mobile) {
+            flex-wrap: wrap;
+            width: 100%;
+        }
+        .footer__header{
+            font-size: 0.9rem;
+            font-weight: bold;
+            margin: 1rem 0;
+        }
+        .footer__option{
+            list-style: none;
+            margin: 1rem 0;
+        }
+    }   
+}

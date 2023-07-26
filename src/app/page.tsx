@@ -3,7 +3,7 @@ import Nav from "./components/Nav"
 import styles from './home.module.scss'
 import { HomeWorkList } from "./lists/HomeWork"
 import HomeWorkSection from "./components/HomeWorkSection"
-import { HomeWorkListType } from "./lists/HomeWork"
+import Footer from "./components/Footer"
 
 export default function Home() {
   return (
@@ -31,7 +31,17 @@ export default function Home() {
           <div className={styles.home__work__sections}>
             {HomeWorkList.map(section=><HomeWorkSection data={section}/>)}
           </div>
+          <div className={styles.home__work__spelling}>
+            <video className={styles.home__work__spelling__video} autoPlay loop muted>
+              <source src="https://static.grammarly.com/assets/files/8a0dda99e354dd8552833ffaf47992a7/llama_video.mp4" type="video/mp4"/>
+            </video>
+            <div>
+              <h3 style={{fontWeight:'bold'}}>Beyond Grammar and Spelling</h3>
+              <p style={{fontSize:'1.1rem',margin:'1rem 0rem'}}>From grammar and spelling to style and tone, Grammarly’s suggestions are comprehensive, helping you communicate effectively and as you intend.</p>
+            </div>
+          </div>
       </div>
+      <Footer />
     </div>
   )
 }

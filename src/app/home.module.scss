@@ -5,6 +5,7 @@ $mobile: 950px;
     padding: 5rem;
     align-items: center;
     justify-content: center;
+    margin: 3% 0 0 0;
     width: 100%;
     background-image: url('https://img.freepik.com/free-photo/abstract-refreshing-blue-tropical-watercolor-background-illustration-high-resolution-free-image_1340-20384.jpg?w=1380&t=st=1690391302~exp=1690391902~hmac=9cfa0ecb376676fdaedc7b9af5bb76d5e339f431568739fca10c0ce618d5419f');
     background-position: center;
@@ -13,6 +14,7 @@ $mobile: 950px;
     @media(max-width: $mobile) {
         flex-wrap: wrap;
         padding: 2rem;
+        margin: 10% 0 0 0;
     }
 }
 .home__main__left{
@@ -87,6 +89,31 @@ $mobile: 950px;
         font-size: 1.2rem;
         @media(max-width: $mobile) {
             width: 90%;
+        }
+    }
+    .home__work__spelling{
+        display: flex;
+        width: 60%;
+        margin: 8rem auto 1rem auto;
+        align-items: center;
+        text-align: left;
+        justify-content: space-between;
+        @media(max-width: $mobile) {
+            width: 90%;
+            flex-wrap: wrap;
+            margin: 1rem auto 1rem auto;
+        }
+        .home__work__spelling__video{
+            width: 50%;
+            border-radius: 0.5rem;
+            margin: 0 3rem;
+            -webkit-box-shadow: 0px 0px 17px -10px rgba(179, 179, 179, 1);
+            -moz-box-shadow: 0px 0px 17px -10px rgba(179, 179, 179, 1);
+            box-shadow: 0px 0px 17px -5px rgba(179, 179, 179, 1);
+            @media(max-width: $mobile) {
+                width: 100%;
+                margin: 3rem 0rem;
+            }
         }
     }
     .home__work__sections{

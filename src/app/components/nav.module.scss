@@ -1,5 +1,12 @@
 $mobile: 950px;
 $color: rgb(74, 185, 148);
+.navbar{
+    position: fixed;
+    right: 0;
+    left: 0;
+    top: 0;
+    background-color: white;
+}
 .nav{
     width: 95%;
     margin: 1rem auto 0 auto;
