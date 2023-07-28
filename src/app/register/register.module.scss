@@ -1,0 +1,90 @@
+@use '../global.scss' as global;
+
+.register__main{
+    display: flex;
+    padding: 1rem;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100vh;
+    background-image: url('https://img.freepik.com/premium-photo/abstract-blue-dust-explosion-white-background-freeze-motion-blue-powder-splash_36326-3240.jpg');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    @media(max-width: global.$mobile) {
+        height:auto;
+        background-image:none;
+    }
+    @media(min-width: global.$mobile) and (max-width: global.$small-laptop) {
+        height:auto;
+        background-image:none;
+    }
+    .register__main__form{
+        background-color: white;
+        padding: 1.5rem;
+        width: 35%;
+        border-radius: 0.5rem;
+        margin: 5rem 0 0 0;
+        -webkit-box-shadow: 0px 0px 17px -10px rgba(179, 179, 179, 1);
+        -moz-box-shadow: 0px 0px 17px -10px rgba(179, 179, 179, 1);
+        box-shadow: 0px 0px 17px -1px rgba(179, 179, 179, 1);
+        @media(max-width: global.$mobile) {
+            width: 90%;
+            margin: 5rem 0 0 0;
+        }
+        @media(min-width: global.$mobile) and (max-width: global.$small-laptop) {
+            width: 50%;
+            margin: 8rem 0 0 0;
+            -webkit-box-shadow: 0px 0px 17px -10px rgba(179, 179, 179, 1);
+            -moz-box-shadow: 0px 0px 17px -10px rgba(179, 179, 179, 1);
+            box-shadow: 0px 0px 17px -1px rgba(179, 179, 179, 1);
+        }
+    .register__main__form__header{
+        display: flex;
+        margin: 1rem 0rem;
+        font-size: 0.9rem;
+        justify-content: space-between;
+    }
+    .register__main__form__error{
+        color: red;
+        font-size: 0.7rem;
+        .register__main__form__error__svg{
+            width: 18px;
+            height: 18px;
+            margin: 0.5rem;
+            fill: white;
+            background-color: red;
+            padding: 0.2rem;
+            border-radius: 10rem
+        }
+    }
+    .register__main__form__input{
+        @include global.input__register(100%,black);
+    }
+    .register__main__form__input__error{
+        @include global.input__register(100%,red);
+    }
+    .register__main__form__btn{
+        @include global.btn__register(global.$color);
+        width: 100%;
+    }
+    .register__main__form__hint{
+        font-size: 0.7rem;
+        margin: 0rem 1rem;
+    }
+    .register__main__form__check__container{
+        margin: 1.5rem 0rem;
+        font-size: 0.8rem;
+        align-items: center;
+        .register__main__form__check{
+            width: 20px;
+            height: 20px;
+            vertical-align: middle;
+        }
+    }
+    .register__main__form__policy{
+        font-size: 0.7rem;
+        text-align: center;
+    }
+}
+}

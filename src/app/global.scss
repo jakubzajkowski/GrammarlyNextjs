@@ -1,5 +1,7 @@
 $color: rgb(74, 185, 148);
 $mobile: 950px;
+$small-laptop: 1100px;
+
 
 @mixin btn__register($color) {
     padding: 0.8rem 1.5rem;
@@ -9,4 +11,13 @@ $mobile: 950px;
     margin: 1rem 1rem 1rem 0;
     font-size: 0.9rem;
     color: white;
+}
+@mixin input__register($width,$color) {
+    padding: 0.6rem 1.2rem;
+    width: $width;
+    border: $color solid 1px;
+    border-radius: 0.3rem;
+    display: block;
+    margin: 1rem 0rem 0.2rem 0;
+    font-size: 0.9rem;
 }
