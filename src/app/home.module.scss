@@ -1,5 +1,9 @@
-$color: rgb(74, 185, 148);
-$mobile: 950px;
+@use './global';
+
+$color: global.$color;
+$mobile: global.$mobile;
+
+
 .home__main{
     display: flex;
     padding: 5rem;
@@ -87,6 +91,18 @@ $mobile: 950px;
         width: 60%;
         margin: 1rem auto;
         font-size: 1.2rem;
+        @media(max-width: $mobile) {
+            width: 90%;
+        }
+    }
+    .home__work__end{
+        padding: 1rem;
+        margin: 8rem 0 1rem 0;
+    }
+    .home__work__btn{
+        @include global.btn__register($color);
+        width:20%;
+        margin: 3rem auto;
         @media(max-width: $mobile) {
             width: 90%;
         }

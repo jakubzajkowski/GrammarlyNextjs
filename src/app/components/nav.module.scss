@@ -74,6 +74,18 @@ $color: rgb(74, 185, 148);
         display: none;
     }
 }
+.link__style__black {
+    text-decoration: none;
+    color: black;
+  }
+.link__style__white {
+    text-decoration: none;
+    color: white;
+  }
+.link__style__color {
+    text-decoration: none;
+    color: $color;
+  }
 
 .nav__mobile__bars{
     width: 25px;

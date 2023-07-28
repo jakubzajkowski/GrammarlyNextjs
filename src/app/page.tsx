@@ -1,7 +1,7 @@
 import Link from "next/link"
 import Nav from "./components/Nav"
 import styles from './home.module.scss'
-import { HomeWorkList } from "./lists/HomeWork"
+import { HomeWorkList } from "./components/lists/HomeWork"
 import HomeWorkSection from "./components/HomeWorkSection"
 import Footer from "./components/Footer"
 
@@ -33,12 +33,17 @@ export default function Home() {
           </div>
           <div className={styles.home__work__spelling}>
             <video className={styles.home__work__spelling__video} autoPlay loop muted>
-              <source src="https://static.grammarly.com/assets/files/8a0dda99e354dd8552833ffaf47992a7/llama_video.mp4" type="video/mp4"/>
+              <source src="https://static.grammarly.com/assets/files/27770e0799f6c6b528204e72ed1fbad6/ggo_four_features_video.mp4" type="video/mp4"/>
             </video>
             <div>
               <h3 style={{fontWeight:'bold'}}>Beyond Grammar and Spelling</h3>
               <p style={{fontSize:'1.1rem',margin:'1rem 0rem'}}>From grammar and spelling to style and tone, Grammarly’s suggestions are comprehensive, helping you communicate effectively and as you intend.</p>
             </div>
+          </div>
+          <div className={styles.home__work__end}>
+            <h2 className={styles.home__work__heading}>Brilliant Writing Awaits</h2>
+            <p className={styles.home__work__info}>Discover the power of confident communication with Grammarly Free.</p>
+            <p className={styles.home__work__btn}>Get Grammarly it's free</p>
           </div>
       </div>
       <Footer />

@@ -1,5 +1,5 @@
 import {FC} from 'react'
-import { HomeWorkListType } from '../lists/HomeWork'
+import { HomeWorkListType } from './lists/HomeWork'
 import styles from '../home.module.scss'
 
 interface HomeWorkSectionProps {
