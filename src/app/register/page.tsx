@@ -1,9 +1,9 @@
 "use client"
 import {FC,useState} from 'react'
-import Nav from '../components/Nav'
 import styles from './register.module.scss'
 import Link from 'next/link'
 import useValidator from './useValidator'
+import { HandleRegister } from '../helpers/Register'
 
 
 const Register: React.FC=()=>{
@@ -11,19 +11,16 @@ const Register: React.FC=()=>{
     const [password,setPassword]=useState('')
     const [name,setName]=useState('')
     const {errorEmail,errorName,errorPassword,validate} = useValidator()
+    const [errorServer,setErrorServer]=useState('')
 
     const handleFormSend=(e:React.MouseEvent<HTMLInputElement, MouseEvent>):void=>{
         e.preventDefault();
         if (validate(email,password,name)){
-            console.log('pass')
-        }
-        else{
-            console.log('not')
+            HandleRegister(password,email,name,setErrorServer)
         }
     }
 
     return <div className={styles.register__main}>
-        <Nav />
         <div className={styles.register__main__form}>
             <form>
                 <div className={styles.register__main__form__header}>
@@ -31,6 +28,7 @@ const Register: React.FC=()=>{
                     <p><Link href='/login'>I have an account</Link></p>
                 </div>
                 <input className={errorEmail ? styles.register__main__form__input__error : styles.register__main__form__input} type="email" placeholder='Email' onChange={(e)=>setEmail(e.target.value)}/>
+                {errorServer!=='' && <p className={styles.register__main__form__error}><svg className={styles.register__main__form__error__svg} xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 384 512"><path d="M342.6 150.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L192 210.7 86.6 105.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L146.7 256 41.4 361.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0L192 301.3 297.4 406.6c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L237.3 256 342.6 150.6z"/></svg>{errorServer}</p>}
                 {errorEmail!=='' && <p className={styles.register__main__form__error}><svg className={styles.register__main__form__error__svg} xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 384 512"><path d="M342.6 150.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L192 210.7 86.6 105.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L146.7 256 41.4 361.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0L192 301.3 297.4 406.6c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L237.3 256 342.6 150.6z"/></svg>{errorEmail}</p>}
                 <input className={errorPassword ? styles.register__main__form__input__error : styles.register__main__form__input} type="password" placeholder='Password' onChange={(e)=>setPassword(e.target.value)}/>
                 {errorPassword!=='' && <p className={styles.register__main__form__error}><svg className={styles.register__main__form__error__svg} xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 384 512"><path d="M342.6 150.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L192 210.7 86.6 105.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L146.7 256 41.4 361.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0L192 301.3 297.4 406.6c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L237.3 256 342.6 150.6z"/></svg>{errorPassword}</p>}

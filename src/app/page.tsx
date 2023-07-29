@@ -1,14 +1,11 @@
 import Link from "next/link"
-import Nav from "./components/Nav"
 import styles from './home.module.scss'
 import { HomeWorkList } from "./components/lists/HomeWork"
 import HomeWorkSection from "./components/HomeWorkSection"
-import Footer from "./components/Footer"
 
 export default function Home() {
   return (
     <div className="w-100">
-      <Nav />
       <div className={styles.home__main}>
           <div className={styles.home__main__left}>
             <h1 className={styles.home__left__heading}>Great Writing,Simplified</h1>
@@ -46,7 +43,6 @@ export default function Home() {
             <p className={styles.home__work__btn}>Get Grammarly it's free</p>
           </div>
       </div>
-      <Footer />
     </div>
   )
 }
