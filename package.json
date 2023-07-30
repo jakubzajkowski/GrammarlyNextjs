@@ -11,7 +11,9 @@
   },
   "dependencies": {
     "@types/bcrypt": "^5.0.0",
+    "@types/jsonwebtoken": "^9.0.2",
     "@types/node": "^20.4.4",
+    "@types/node-jose": "^1.1.10",
     "@types/react": "18.2.15",
     "@types/react-dom": "18.2.7",
     "@types/validator": "^13.7.17",
@@ -21,6 +23,8 @@
     "eslint": "8.45.0",
     "eslint-config-next": "13.4.12",
     "framer-motion": "^10.13.1",
+    "jose": "^4.14.4",
+    "jsonwebtoken": "^9.0.1",
     "mongoose": "^7.4.1",
     "next": "13.4.12",
     "react": "18.2.0",
