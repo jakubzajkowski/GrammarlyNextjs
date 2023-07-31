@@ -12,7 +12,7 @@ export async function GET(req : UserRequest) {
     if (token){
         await connectMongo();
         const user = await User.findOne({ _id: token?.value});
-        return NextResponse.json({error: user})
+        return NextResponse.json({seccess: user})
     }
     else{
         return NextResponse.json({error: 'Unauthorized'})

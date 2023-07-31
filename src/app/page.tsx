@@ -1,9 +1,10 @@
+"use client"
 import Link from "next/link"
 import styles from './home.module.scss'
 import { HomeWorkList } from "./components/lists/HomeWork"
 import HomeWorkSection from "./components/HomeWorkSection"
 
-export default function Home() {
+function Home() {
   return (
     <div className="w-100">
       <div className={styles.home__main}>
@@ -46,3 +47,5 @@ export default function Home() {
     </div>
   )
 }
+
+export default Home
