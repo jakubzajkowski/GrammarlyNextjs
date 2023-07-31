@@ -4,6 +4,7 @@ import styles from './register.module.scss'
 import Link from 'next/link'
 import useValidator from './useValidator'
 import { HandleRegister } from '../helpers/Register'
+import Nav from "../components/Nav"
 
 
 const Register: React.FC=()=>{
@@ -21,6 +22,7 @@ const Register: React.FC=()=>{
     }
 
     return <div className={styles.register__main}>
+        <Nav />
         <div className={styles.register__main__form}>
             <form>
                 <div className={styles.register__main__form__header}>

@@ -162,7 +162,7 @@ $mobile: global.$mobile;
             .home__work__section__icons__container__up{
                 display: flex;
                 justify-content: space-between;
-                align-items:start;
+                align-items:flex-start;
                 margin: 3rem 0 1rem 0;
                 @media(max-width: $mobile) {
                     margin: 0.5rem 0 1rem 0;
@@ -170,7 +170,7 @@ $mobile: global.$mobile;
             }
             .home__work__section__icons__container__down{
                 display: flex;
-                align-items:start;
+                align-items:flex-start;
                 justify-content: space-between;
             }
         }

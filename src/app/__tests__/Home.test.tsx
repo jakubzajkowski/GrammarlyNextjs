@@ -14,7 +14,8 @@ describe('Home',()=>{
         render(<Home />)
         const registerLink=screen.getAllByRole('link',{name:"Get Grammarly it's free"})
         registerLink.forEach(link=>expect(link).toHaveAttribute('href','/register'))
-        expect(screen.getByRole('link',{name:"Log in"})).toHaveAttribute('href','/login')
+        const loginLink=screen.getAllByRole('link',{name:"Log in"})
+        loginLink.forEach(link=>expect(link).toHaveAttribute('href','/login'))
     })
     test('test src video',()=>{
         render(<Home/>)

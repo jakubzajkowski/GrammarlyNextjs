@@ -1,10 +1,10 @@
 "use client"
-import {FC,useState} from 'react'
+import {useState} from 'react'
 import styles from '../register/register.module.scss'
 import Link from 'next/link'
 import validator from 'validator'
 import { HandleLogin } from '../helpers/Login'
-import axios from 'axios'
+import Nav from "../components/Nav"
 
 
 const Login: React.FC=()=>{
@@ -22,6 +22,7 @@ const Login: React.FC=()=>{
     }
 
     return <div className={styles.register__main}>
+        <Nav />
         <div className={styles.register__main__form}>
             <form>
                 <div className={styles.register__main__form__header}>

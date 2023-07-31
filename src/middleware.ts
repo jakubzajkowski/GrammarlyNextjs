@@ -15,8 +15,7 @@ export async function middleware(req: UserRequest) {
     else{
         const decode = await jose.jwtVerify(token.value, new TextEncoder().encode(process.env.JWT_SECRET_TOKEN as string));
         if (decode){
-            const { _id } : string | any = decode.payload.user
-            return NextResponse.next({headers: { 'Set-Cookie': `session=${_id}; HttpOnly; Max-Age=${60 * 60}; Path=/; SameSite=None; Secure`}});
+            return NextResponse.next();
         }
         else{
             return NextResponse.json({ error: 'Unauthorized' });
