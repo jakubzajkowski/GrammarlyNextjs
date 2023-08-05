@@ -1,0 +1,51 @@
+@mixin dotAnimate($time){
+    width: 20px;
+    height: 20px;
+    background-color: black;
+    border-radius: 10rem;
+    animation: slidein ease 1s $time infinite;
+}
+
+
+.loading{
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 100;
+    background-color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    .loading__dot__container{
+        display: flex;
+        justify-content: space-between;
+        margin: 0 0 5rem 0;
+        gap: 1rem;
+        .dotone{
+          @include dotAnimate(0s)
+        }
+        .dottwo{
+          @include dotAnimate(0.1s)
+        }
+        .dotthree{
+          @include dotAnimate(0.2s)
+        }
+    }
+}
+@keyframes slidein {
+    0% {
+      opacity: 0;
+      scale: 0.2;
+    }
+  
+    50% {
+      opacity: 1;
+      scale: 1;
+    }
+    100% {
+      opacity: 0;
+      scale: 0;
+    }
+  }
