@@ -2,17 +2,26 @@ import axios from 'axios';
 import React from 'react';
 import { useState,useEffect } from 'react';
 
+interface dataDocumnetsType {
+        title:string
+        text:string
+        status:string
+        _id:string
+        date:string
+}
+
 interface dataType {
     _id: string,
     name: string,
     email: string,
     password: string,
-    __v: number
+    __v: number,
+    documents: dataDocumnetsType[]
 }
 
 const useAuth = ()=>{
     const [error,setError]=useState('')
-    const [data,setData]: [dataType | undefined,React.Dispatch<React.SetStateAction<dataType | undefined>>]=useState()
+    const [isLogged,setIsLogged]=useState(false)
     const [isLoading,setIsLoading]=useState(false)
 
     useEffect(()=>{
@@ -22,13 +31,13 @@ const useAuth = ()=>{
                 setError('Your Are Not Authorized')
             }
             else{
-                setData(data)
+                setIsLogged(true)
                 setIsLoading(false)
             }
         }).catch(err=>setError(err))
     },[])
 
-    return {data,error,isLoading}
+    return {isLogged,error,isLoading}
 }
 
 export default useAuth

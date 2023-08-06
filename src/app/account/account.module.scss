@@ -1,6 +1,8 @@
 @use '../global.scss' as global;
+$boxShadowColor : rgb(202, 202, 202); 
 
 .account{
+    width: 100%;
     .sidebar{
         background-color: rgb(46, 46, 46);
         position: absolute;
@@ -39,6 +41,79 @@
                 margin: 0.5rem 0 0 1rem;
             }
         }
+    }
+    .account__content{
+       margin: 0 0 0 15%;
+       padding: 3rem;
+       .account__content__search{
+            padding: 0.4rem 1rem;
+            width: 50%;
+            border: none;
+            border-radius: 0.3rem;
+            display: block;
+            margin: 1rem 0rem 0.2rem 0;
+            font-size: 0.9rem;
+            -webkit-box-shadow: 0px 0px 6px 1px $boxShadowColor;
+            -moz-box-shadow: 0px 0px 6px 1px $boxShadowColor;
+            box-shadow: 0px 0px 3px 1px $boxShadowColor;
+            &:focus {
+                outline: none;
+            }
+       }
+       .account__content__docs{
+        display: flex;
+        flex-wrap: wrap;
+        gap: 1rem;
+        padding: 3rem 0rem;
+        .newdoc{
+            -webkit-box-shadow: 0px 0px 6px 1px $boxShadowColor;
+            -moz-box-shadow: 0px 0px 6px 1px $boxShadowColor;
+            box-shadow: 0px 0px 3px 1px $boxShadowColor;
+            text-align: center;
+            width: 12%;
+            text-align: center;
+            .newdoc__up{
+                padding: 0.8rem 1rem;
+                cursor: pointer;
+                overflow: hidden;
+                &:hover > .newdoc__text{
+                    color: red;
+                }
+                .newdoc__icon{
+                    width: 45px;
+                    height: 45px;
+                    fill: red;
+                    margin: 0.5rem 0.2rem;
+                }
+                .newdoc__text{
+                    font-size: 1.2rem;
+                    width: 100%;
+                }
+            }
+            .newdoc__down{
+                display: flex;
+                justify-content: center;
+                gap: 0.5rem;
+                padding: 0.2rem;
+                cursor: pointer;
+                border-top: 1px solid rgb(206, 206, 206);
+                &:hover > .newdoc__text__upload{
+                    color: red;
+                }
+                .newdoc__icon__upload{
+                    width: 20px;
+                    height: 20px;
+                    fill: red;
+                    margin: 0.5rem 0;
+                }
+                .newdoc__text__upload{
+                    font-size: 0.8rem;
+                    font-weight: bold;
+                    margin: 0.5rem 0;
+                }
+            }
+           }
+       }
     }
 }
 .link_logo{

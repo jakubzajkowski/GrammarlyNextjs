@@ -10,7 +10,15 @@ const userSchema = new mongoose.Schema({
   password: {
     type: String,
   },
-  
+  documents : [{
+    title : String,
+    text : String,
+    date : {
+      type : Date,
+      default : Date.now
+    },
+    status: String,
+    }]
 });
 
 const User = mongoose.models.User || mongoose.model('User', userSchema )  
