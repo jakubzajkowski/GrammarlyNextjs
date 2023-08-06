@@ -1,7 +1,7 @@
 import React from "react";
 import styles from '../account.module.scss'
 import Link from "next/link";
-import { HandleLogout } from "@/app/helpers/logout";
+import { HandleLogout } from "@/app/helpers/Logout";
 
 interface SidebarProps {
     email : string

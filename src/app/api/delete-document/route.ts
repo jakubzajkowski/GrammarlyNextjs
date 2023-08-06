@@ -4,21 +4,15 @@ import connectMongo from "@/app/db/database";
 
 interface RequestBodyType {
   _id:string 
-  text:string
+  documentId: string
 }
 
 export async function POST(req : Request) {
-    const {_id}:RequestBodyType = await req.json()
+    const {_id,documentId}:RequestBodyType = await req.json()
     await connectMongo();
     await User.findOneAndUpdate(
         { _id: _id },
-        { $push: { documents: {
-            title : 'untitled',
-            text : '',
-            status: 'created',
-            }
-        } 
-    } 
+        { $pull: { documents: {_id: documentId} } } 
     )
-    return NextResponse.json({status: 'added'})
+    return NextResponse.json({status: 'deleted'})
   }

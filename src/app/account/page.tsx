@@ -25,8 +25,8 @@ export default function Account() {
             <div className={styles.account__content}>
                 <input placeholder='Search...' className={styles.account__content__search} type="text" />
                 <div className={styles.account__content__docs}>
-                    <NewDoc />
-                    {data.documents.map(doc=><Doc title={doc.title} key={doc._id}/>)}
+                    <NewDoc _id={data._id}/>
+                    {data.documents.map(doc=><Doc status={doc.status} title={doc.title} key={doc._id} _id={data._id} documentId={doc._id}/>)}
                 </div>
             </div>
         </div>
