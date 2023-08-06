@@ -21,3 +21,15 @@ $small-laptop: 1100px;
     margin: 1rem 0rem 0.2rem 0;
     font-size: 0.9rem;
 }
+@mixin link__style__black {
+    text-decoration: none;
+    color: black;
+  }
+@mixin link__style__white {
+    text-decoration: none;
+    color: white;
+  }
+@mixin link__style__color($color){
+    text-decoration: none;
+    color: $color;
+  }

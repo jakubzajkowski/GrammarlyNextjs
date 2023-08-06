@@ -23,10 +23,10 @@ export async function POST(req : Request) {
     const token = await new jose.SignJWT({ user })
                         .setProtectedHeader({ alg: 'HS256' })
                         .setIssuedAt()
-                        .setExpirationTime('1h')
+                        .setExpirationTime(process.env.JWT_SECRET_TOKEN_EXPIRES as string)
                         .sign(new TextEncoder().encode(process.env.JWT_SECRET_TOKEN as string));
     return new Response('Logged Successful', {
         status: 200,
-        headers: { 'Set-Cookie': `token=${token}; HttpOnly; Max-Age=${60 * 60}; Path=/; SameSite=None; Secure`},
+        headers: { 'Set-Cookie': `token=${token}; HttpOnly; Max-Age=${process.env.SESSION_EXPIRES}; Path=/; SameSite=None; Secure`},
       })
   }
