@@ -42,7 +42,7 @@ describe('AccountSidebar',()=>{
                 expect(link).toHaveAttribute('href', '/support')
             }
             if (index==7){
-                expect(link).toHaveAttribute('href', '/sign-out')
+                expect(link).toHaveAttribute('href', '/')
             }
         })
     })
