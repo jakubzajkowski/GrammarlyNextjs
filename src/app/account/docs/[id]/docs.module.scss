@@ -1,0 +1,42 @@
+.doc{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    padding: 3rem;
+    .doc__document{
+        width: 40%;
+        display: flex;
+        flex-direction: column;
+
+        .doc__document__title{
+            border: none;
+            border-radius: 0.5rem;
+            font-weight: bold;
+            width: 50%;
+            padding: 0.5rem;
+            margin: 0rem 0rem 5rem 0;
+            &:focus{
+                outline: none;
+                background-color: rgb(232, 228, 247);
+            }
+        }
+
+        .doc__document__text{
+            border: none;
+            margin: 1rem 0rem;
+            border-radius: 0.5rem;
+            font-size: 1.1rem;
+            padding: 0.5rem;
+            max-height: 50vh;
+            min-height: 50vh;
+            &:focus{
+                outline: none;
+            }
+        }
+    }
+    .doc__suggestions{
+        width: 40%;
+        padding: 1rem;
+    }
+}
