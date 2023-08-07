@@ -13,7 +13,7 @@ export async function POST(req : Request) {
     await User.findOneAndUpdate(
         { _id: _id },
         { $push: { documents: {
-            title : 'untitled',
+            title : 'Untitled Document',
             text : '',
             status: 'created',
             }

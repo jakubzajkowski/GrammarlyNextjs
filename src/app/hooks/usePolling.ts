@@ -33,7 +33,7 @@ const usePolling = ()=>{
                 }
             }).catch(err=>setErrorPoll(err))
         }
-        const interval = setInterval(poll, 500);
+        const interval = setInterval(poll, 1000);
         return () => clearInterval(interval);
     },[])
 

@@ -11,6 +11,11 @@ interface documentParamsType {
 
 export async function GET(req : Request,{ params } : documentParamsType) {
     await connectMongo();
-    const user = await User.find({ '_id': params._id, 'documents._id': params.document_id},{ 'documents.$': 1 })
-    return NextResponse.json({user})
+    if (params._id && params.document_id){
+      const user = await User.find({ '_id': params._id, 'documents._id': params.document_id},{ 'documents.$': 1 })
+      return NextResponse.json(user[0].documents[0])
+    }
+    else{
+      return NextResponse.json({error: 'Not logged'})
+    }
   }
