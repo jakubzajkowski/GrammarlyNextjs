@@ -1,0 +1,31 @@
+.settings{
+    width: 100%;
+    .settings__profile{
+        margin: 0 0 0 15%;
+        padding: 3rem;
+        .settings__profile__title{
+            font-weight: bold;
+        }
+        .settings__profile__section{
+            .settings__profile__section__title{
+                margin: 2rem 0 0.5rem 0;
+                color: grey;
+                font-size: 0.9rem;
+            }
+            .settings__profile__section__btn{
+                margin: 0 3rem;
+                font-size: 0.9rem;
+                font-weight: bold;
+                color: rgb(0, 60, 255);
+                cursor: pointer;
+            }
+            .settings__profile__section__delete__btn{
+                font-size: 0.9rem;
+                font-weight: bold;
+                margin: 2rem 0 0.5rem 0;
+                color: red;
+                cursor: pointer;
+            }
+        }
+    }
+}

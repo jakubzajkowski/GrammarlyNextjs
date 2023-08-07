@@ -5,8 +5,16 @@ import { HomeWorkList } from "./components/lists/HomeWork"
 import HomeWorkSection from "./components/HomeWorkSection"
 import Nav from "./components/Nav"
 import Footer from "./components/Footer"
+import { useEffect } from "react"
+import useAuth from "./hooks/useAuth"
 
 function Home() {
+    const {isLogged,error,isLoading} = useAuth()
+  useEffect(()=>{
+    if (isLogged){
+      window.location.href='/account'
+    }
+  },[isLogged])
   return (
     <div className="w-100">
       <Nav />
