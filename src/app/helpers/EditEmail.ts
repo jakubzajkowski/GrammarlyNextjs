@@ -11,5 +11,8 @@ export const HandleEditEmail = (password: string,email: string,newEmail:string,e
             errorServer(data.error)
             console.log(data.error)
         }
+        else{
+            errorServer('Success')
+        }
     }).catch(err=>console.log(err))
 }

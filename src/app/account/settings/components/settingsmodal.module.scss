@@ -1,0 +1,69 @@
+$boxShadowModalColor:rgb(107, 107, 107); 
+$boxShadowColor:rgb(197, 197, 197);
+$onFocusColor: rgb(99, 136, 255);
+
+.modal__container{
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.3);
+    z-index: 1000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    .modal{
+        background-color: white;
+        margin: 0 0 5rem 0;
+        padding: 2rem;
+        -webkit-box-shadow: 0px 0px 6px 1px $boxShadowModalColor;
+        -moz-box-shadow: 0px 0px 6px 1px $boxShadowModalColor;
+        box-shadow: 0px 0px 6px 1px $boxShadowModalColor;
+        border-radius: 0.5rem;
+        position: relative;
+        width: 25%;
+        .modal__close{
+            position: absolute;
+            top: 0;
+            right: 0;
+            margin: 1rem;
+            fill: gray;
+            height: 18px;
+            width: 18px;
+            cursor: pointer;
+        }
+        .modal__input{
+            padding: 0.6rem 1rem;
+            border: none;
+            width: 100%;
+            border-radius: 0.3rem;
+            display: block;
+            margin: 1rem 0rem 0.2rem 0;
+            font-size: 0.9rem;
+            -webkit-box-shadow: 0px 0px 6px 1px $boxShadowColor;
+            -moz-box-shadow: 0px 0px 6px 1px $boxShadowColor;
+            box-shadow: 0px 0px 3px 1px $boxShadowColor;
+            &:focus {
+                outline: none;
+                -webkit-box-shadow: 0px 0px 6px 1px $onFocusColor;
+                -moz-box-shadow: 0px 0px 6px 1px $onFocusColor;
+                box-shadow: 0px 0px 6px 1px $onFocusColor;
+            }
+        }
+        .modal__button{
+            padding: 0.6rem 1rem;
+            border: none;
+            border-radius: 0.3rem;
+            display: block;
+            background-color: rgb(65, 108, 248);
+            color: white;
+            font-weight: bold;
+            margin: 1rem 0 0.2rem 0;
+            font-size: 0.9rem;
+            -webkit-box-shadow: 0px 0px 6px 1px $boxShadowColor;
+            -moz-box-shadow: 0px 0px 6px 1px $boxShadowColor;
+            box-shadow: 0px 0px 3px 1px $boxShadowColor;
+        }
+    }
+}
