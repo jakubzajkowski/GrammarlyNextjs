@@ -10,6 +10,15 @@ const userSchema = new mongoose.Schema({
   password: {
     type: String,
   },
+  trashs : [{
+    title : String,
+    text : String,
+    date : {
+      type : Date,
+      default : Date.now
+    },
+    status: String,
+    }],
   documents : [{
     title : String,
     text : String,

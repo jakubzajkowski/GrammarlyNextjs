@@ -9,6 +9,13 @@ interface dataDocumnetsType {
         _id:string
         date:string
 }
+interface dataTrashType {
+    title:string
+    text:string
+    status:string
+    _id:string
+    date:string
+}
 
 interface dataType {
     _id: string,
@@ -17,6 +24,7 @@ interface dataType {
     password: string,
     __v: number,
     documents: dataDocumnetsType[]
+    trashs:dataTrashType[]
 }
 const usePolling = ()=>{
     const [errorPoll,setErrorPoll]=useState('')

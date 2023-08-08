@@ -66,54 +66,6 @@ $boxShadowColor : rgb(202, 202, 202);
         flex-wrap: wrap;
         gap: 1rem;
         padding: 3rem 0rem;
-        .newdoc{
-            -webkit-box-shadow: 0px 0px 6px 1px $boxShadowColor;
-            -moz-box-shadow: 0px 0px 6px 1px $boxShadowColor;
-            box-shadow: 0px 0px 3px 1px $boxShadowColor;
-            text-align: center;
-            width: 12%;
-            text-align: center;
-            .newdoc__up{
-                padding: 0.8rem 1rem;
-                cursor: pointer;
-                overflow: hidden;
-                &:hover > .newdoc__text{
-                    color: red;
-                }
-                .newdoc__icon{
-                    width: 45px;
-                    height: 45px;
-                    fill: red;
-                    margin: 0.5rem 0.2rem;
-                }
-                .newdoc__text{
-                    font-size: 1rem;
-                    width: 100%;
-                }
-            }
-            .newdoc__down{
-                display: flex;
-                justify-content: center;
-                gap: 0.5rem;
-                padding: 0.2rem;
-                cursor: pointer;
-                border-top: 1px solid rgb(206, 206, 206);
-                &:hover > .newdoc__text__upload{
-                    color: red;
-                }
-                .newdoc__icon__upload{
-                    width: 20px;
-                    height: 20px;
-                    fill: red;
-                    margin: 0.5rem 0;
-                }
-                .newdoc__text__upload{
-                    font-size: 0.8rem;
-                    font-weight: bold;
-                    margin: 0.5rem 0;
-                }
-            }
-           }
        }
     }
 }
@@ -134,3 +86,51 @@ $boxShadowColor : rgb(202, 202, 202);
     padding: 0.3rem;
     margin: 0 0.5rem 0 0rem;
 }
+.newdoc{
+    -webkit-box-shadow: 0px 0px 6px 1px $boxShadowColor;
+    -moz-box-shadow: 0px 0px 6px 1px $boxShadowColor;
+    box-shadow: 0px 0px 3px 1px $boxShadowColor;
+    text-align: center;
+    width: 12%;
+    text-align: center;
+    .newdoc__up{
+        padding: 0.8rem 1rem;
+        cursor: pointer;
+        overflow: hidden;
+        &:hover > .newdoc__text{
+            color: red;
+        }
+        .newdoc__icon{
+            width: 45px;
+            height: 45px;
+            fill: red;
+            margin: 0.5rem 0.2rem;
+        }
+        .newdoc__text{
+            font-size: 1rem;
+            width: 100%;
+        }
+    }
+    .newdoc__down{
+        display: flex;
+        justify-content: center;
+        gap: 0.5rem;
+        padding: 0.2rem;
+        cursor: pointer;
+        border-top: 1px solid rgb(206, 206, 206);
+        &:hover > .newdoc__text__upload{
+            color: red;
+        }
+        .newdoc__icon__upload{
+            width: 20px;
+            height: 20px;
+            fill: red;
+            margin: 0.5rem 0;
+        }
+        .newdoc__text__upload{
+            font-size: 0.8rem;
+            font-weight: bold;
+            margin: 0.5rem 0;
+        }
+    }
+   }
