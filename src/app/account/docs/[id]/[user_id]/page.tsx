@@ -3,6 +3,7 @@ import React,{useContext, useEffect, useState} from "react"
 import styles from './docs.module.scss'
 import useDocument from "@/app/hooks/useDocument"
 import Loading from "@/app/components/Loading"
+import { HandleSaveDocument } from "@/app/helpers/SaveDocument"
 
 
 interface DocsProps {
@@ -21,6 +22,11 @@ const Doc: React.FC<DocsProps>= ({params}) => {
     setText(document?.text)
     setTitle(document?.title)
   },[document])
+
+  useEffect(()=>{
+    HandleSaveDocument(params.user_id,params.id,title as string,text as string)
+    console.log('xd')
+  },[text,title])
 
   if (isLoading && ! document) return <Loading />
 
