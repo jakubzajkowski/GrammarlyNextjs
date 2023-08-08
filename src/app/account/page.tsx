@@ -7,6 +7,7 @@ import Sidebar from './components/Sidebar';
 import NewDoc from './components/NewDoc';
 import Doc from './components/Doc';
 import usePolling from '../hooks/usePolling';
+import { HandleDeleteDocument } from '@/app/helpers/DeleteDocument'
 
 
 
@@ -26,7 +27,7 @@ export default function Account() {
                 <input placeholder='Search...' className={styles.account__content__search} type="text" />
                 <div className={styles.account__content__docs}>
                     <NewDoc _id={data._id}/>
-                    {data.documents.map(doc=><Doc status={doc.status} title={doc.title} key={doc._id} _id={data._id} documentId={doc._id}/>)}
+                    {data.documents.map(doc=><Doc HandleDeleteDocument={HandleDeleteDocument} status={doc.status} title={doc.title} key={doc._id} _id={data._id} documentId={doc._id}/>)}
                 </div>
             </div>
         </div>

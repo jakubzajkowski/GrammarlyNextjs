@@ -1,6 +1,5 @@
 import React from 'react'
 import styles from '../account.module.scss'
-import { HandleDeleteDocument } from '@/app/helpers/DeleteDocument'
 import Link from 'next/link'
 
 interface DocProps {
@@ -8,9 +7,10 @@ interface DocProps {
     status: string,
     _id: string,
     documentId: string
+    HandleDeleteDocument : (_id: string, documentId: string) => void
 }
 
-const Doc : React.FC<DocProps> = ({title,status,documentId,_id}) => {
+const Doc : React.FC<DocProps> = ({title,status,documentId,_id,HandleDeleteDocument}) => {
   return (
     <div className={styles.newdoc}>
         <div className={styles.newdoc__up}>

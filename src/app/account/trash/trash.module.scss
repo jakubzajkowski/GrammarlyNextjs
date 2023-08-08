@@ -18,6 +18,11 @@ $boxShadowColor : rgb(202, 202, 202);
              &:focus {
                  outline: none;
              }
-    }
+        }
+        .trash__content__docs{
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
     }
 }
