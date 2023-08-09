@@ -1,0 +1,26 @@
+.text_custom__container{
+    position: absolute;
+    bottom: 0;
+    width: 60%;
+    padding: 1rem;
+    left: 0;
+    display: flex;
+    justify-content: center;
+    .text_custom__container__icons{
+        display: flex;
+        gap: 1rem;
+        .text_custom__container__button{
+            background-color: white;
+            border: none;
+            margin: 1rem 0;
+            .text_custom__container__icon{
+                width: 30px;
+                height: 30px;
+                fill: rgb(75, 75, 75);
+                border-radius: 0.5rem;
+                padding: 0.5rem;
+                cursor: pointer;
+            }
+        }
+    }
+}

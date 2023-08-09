@@ -30,13 +30,32 @@
             padding: 0.5rem;
             max-height: 60vh;
             min-height: 60vh;
+            overflow-y: auto;
             &:focus{
                 outline: none;
+            }
+            &:empty:before {
+                content: attr(data-placeholder);
+                color: rgb(150, 150, 150);
             }
         }
     }
     .doc__suggestions{
-        width: 40%;
+        width: 30%;
         padding: 1rem;
+        .doc__suggestions__title{
+            font-size: 1rem;
+            font-weight: bold;
+        }
+        .doc__suggestions__inactive{
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            .doc__suggestions__inactive__img{
+                width: 90%;
+                padding: 1rem;
+                margin: 6rem 0;
+            }
+        }
     }
 }
