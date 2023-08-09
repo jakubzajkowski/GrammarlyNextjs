@@ -1,0 +1,92 @@
+$boxShadowColor:rgb(185, 185, 185);
+$hoverColor:rgb(106, 106, 248);
+
+.sidebar__document{
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    width: 25%;
+    background-color: white;
+    z-index: 1000;
+    -webkit-box-shadow: 0px 0px 6px 1px $boxShadowColor;
+    -moz-box-shadow: 0px 0px 6px 1px $boxShadowColor;
+    box-shadow: 0px 0px 6px 1px $boxShadowColor;
+    .sidebar__document__container{
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+        padding: 0.3rem 1rem;
+        margin: 0;
+        cursor: pointer;
+        transition: background-color 0.3s ease-in-out;
+        &:hover > .sidebar__document__close__text{
+            color: $hoverColor;
+        }
+        &:hover > .sidebar__document__icon{
+            color: $hoverColor;
+        }
+        &:hover > .sidebar__document__close{
+            fill: $hoverColor;
+        }
+        &:hover{
+            background-color: rgb(243, 243, 255);
+        }
+        .sidebar__document__close__text{
+            margin: 0rem 0 0 0;
+            color: grey;
+            cursor: pointer;
+            transition: color 0.3s ease-in-out;
+        }
+    }
+}
+.sidebar__document__close{
+    width: 20px;
+    height: 20px;
+    margin: 0.5rem;
+    padding: 0.3rem;
+    fill: black;
+    display: inline;
+    transition: fill 0.3s ease-in-out;
+}
+.sidebar__document__icon{
+    width: 25px;
+    height: 25px;
+    margin: 0.5rem;
+    fill: black;
+    display: inline;
+    transition: fill 0.3s ease-in-out;
+}
+.sidebar__document__link{
+    text-decoration: none;
+}
+.sidebar__document__section{
+    margin: 1rem 1.5rem;
+}
+.sidebar__document__container__close{
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 0.3rem 1rem;
+    margin: 1rem 0;
+    cursor: pointer;
+    transition: background-color 0.3s ease-in-out;
+    &:hover > .sidebar__document__close__text{
+        color: $hoverColor;
+    }
+    &:hover > .sidebar__document__icon{
+        color: $hoverColor;
+    }
+    &:hover > .sidebar__document__close{
+        fill: $hoverColor;
+    }
+    &:hover{
+        background-color: rgb(243, 243, 255);
+    }
+    .sidebar__document__close__text{
+        margin: 0rem 0 0 0;
+        color: grey;
+        cursor: pointer;
+        transition: color 0.3s ease-in-out;
+    }
+}

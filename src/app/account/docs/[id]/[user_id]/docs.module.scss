@@ -1,9 +1,39 @@
+$boxShadowColor: rgb(207, 207, 207);
 .doc{
     width: 100%;
     display: flex;
     justify-content: center;
     gap: 1rem;
     padding: 3rem;
+    .doc__sidebar__nav{
+        position: absolute;
+        top: 0;
+        left: 0;
+        margin: 1rem;
+        padding: 0.5rem;
+        border-radius: 3rem;
+        -webkit-box-shadow: 0px 0px 6px 1px $boxShadowColor;
+        -moz-box-shadow: 0px 0px 6px 1px $boxShadowColor;
+        box-shadow: 0px 0px 6px 1px $boxShadowColor;
+        .nav__logo{
+            width: 25px;
+            height: 25px;
+            display: inline;
+            border-radius: 10rem;
+            background-color: aquamarine;
+            fill: white;
+            padding: 0.3rem;
+            cursor: pointer;
+            margin: 0 0.5rem 0 0.5rem;
+        }
+        .nav__bars{
+            width: 25px;
+            height: 25px;
+            cursor: pointer;
+            display: inline;
+            margin: 0 0.5rem 0 0.5rem;
+        }
+    }
     .doc__document{
         width: 40%;
         display: flex;

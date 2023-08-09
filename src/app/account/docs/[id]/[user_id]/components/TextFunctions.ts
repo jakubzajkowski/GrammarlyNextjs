@@ -27,7 +27,7 @@ export const handleInsertBulletPoints = (textRef:any) => {
     document.execCommand("insertUnorderedList", false,);
     textRef.current.focus();
   };
-export const handleTextColorChange = (textRef: any) => {
-    document.execCommand("foreColor", false, 'red');
+export const handleTextColorChange = (textRef: any,color: string) => {
+    document.execCommand("foreColor", false, color);
     textRef.current.focus();
-  };
+};

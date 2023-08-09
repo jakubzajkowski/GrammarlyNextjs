@@ -20,6 +20,9 @@
                 border-radius: 0.5rem;
                 padding: 0.5rem;
                 cursor: pointer;
+                &:hover{
+                    background-color: rgb(199, 199, 255);
+                }
             }
         }
     }
