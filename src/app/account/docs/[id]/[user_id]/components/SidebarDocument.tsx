@@ -3,12 +3,16 @@ import styles from './sidebardocument.module.scss'
 import { motion } from 'framer-motion'
 import Link from 'next/link'
 import { SidebarDocumentList } from './lists/SidebarDocumentList'
+import SideBarDocumentSection from './SideBarDocumentSection'
+
 
 interface SidebarDocumentProps{
     setIsSidebar: React.Dispatch<React.SetStateAction<boolean>>
+    textRef: any
+    title: string
 }
 
-const SidebarDocument:React.FC<SidebarDocumentProps>= ({setIsSidebar}) => {
+const SidebarDocument:React.FC<SidebarDocumentProps>= ({setIsSidebar,textRef,title}) => {
   return (
     <motion.div initial={{ x: '-100%' }} onMouseLeave={()=>setIsSidebar(false)} animate={{ x: '0%' }} exit={{ x: '-100%' }} transition={{duration:0.4,ease:'easeInOut'}} className={styles.sidebar__document}>
         <div onClick={()=>setIsSidebar(false)} className={styles.sidebar__document__container__close}>
@@ -21,12 +25,7 @@ const SidebarDocument:React.FC<SidebarDocumentProps>= ({setIsSidebar}) => {
             <Link href="/account" className={styles.sidebar__document__link}><p className={styles.sidebar__document__close__text}>My Grammarly</p></Link>
         </div>
         <p className={styles.sidebar__document__section}>DOCUMENT</p>
-        {SidebarDocumentList.map(section => (
-        <div className={styles.sidebar__document__container}>
-            {section.icon}
-            <Link href="/account" className={styles.sidebar__document__link}><p className={styles.sidebar__document__close__text}>{section.text}</p></Link>
-        </div>
-        ))}
+        {SidebarDocumentList.map(section => <SideBarDocumentSection title={title} key={section.text} textRef={textRef} text={section.text} icon={section.icon}/>)}
         <p className={styles.sidebar__document__section}>EDIT</p>
     </motion.div>
   )

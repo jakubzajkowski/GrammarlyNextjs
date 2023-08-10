@@ -1,4 +1,10 @@
 $boxShadowColor: rgb(207, 207, 207);
+@media print {
+    @page {
+      size: A4; /* Or any other page size you prefer */
+      margin: 1cm; /* Adjust the margin value as needed */
+    }
+  }
 .doc{
     width: 100%;
     display: flex;
