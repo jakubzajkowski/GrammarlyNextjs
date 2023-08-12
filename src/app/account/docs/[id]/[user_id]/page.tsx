@@ -9,6 +9,7 @@ import TextCustomBar from "./components/TextCustomBar"
 import Link from "next/link"
 import SidebarDocument from "./components/SidebarDocument"
 import {AnimatePresence} from 'framer-motion'
+import { HandleCheckText } from "@/app/helpers/CheckText"
 
 
 interface DocsProps {
@@ -19,16 +20,17 @@ interface DocsProps {
 }
 
 const Doc: React.FC<DocsProps>= ({params}) => {
-  const {document: xd,error,isLoading} = useDocument(params.user_id,params.id)
+  const {document,error,isLoading} = useDocument(params.user_id,params.id)
   const [text,setText]:[undefined | string | Element, React.Dispatch<React.SetStateAction<undefined | string | Element>>] = useState()
+  const [textSuggest,setTextSuggest]:[undefined | string, React.Dispatch<React.SetStateAction<undefined | string >>] = useState()
   const [title,setTitle]:[undefined | string, React.Dispatch<React.SetStateAction<undefined | string>>] = useState()
   const textRef = useRef<any>(null)
   const [isSidebar,setIsSidebar]=useState(false)
 
   useEffect(()=>{
-    setText(xd?.text)
-    setTitle(xd?.title)
-  },[xd])
+    setText(document?.text)
+    setTitle(document?.title)
+  },[document])
 
   useEffect(()=>{
       HandleSaveDocument(params.user_id,params.id,title as string,text as string)
@@ -38,11 +40,11 @@ const Doc: React.FC<DocsProps>= ({params}) => {
     setText(evt.target.value);
   };
 
-  if (isLoading && ! xd) return <Loading />
+  if (isLoading && ! document) return <Loading />
 
   if (error) return <div>{error}</div>
 
-  if (xd) return (
+  if (document) return (
     <div className={styles.doc}>
       <AnimatePresence>{isSidebar && (<SidebarDocument setIsSidebar={setIsSidebar} textRef={textRef} title={title as string} />)}</AnimatePresence>
       <div className={styles.doc__sidebar__nav}>
@@ -64,6 +66,7 @@ const Doc: React.FC<DocsProps>= ({params}) => {
       <div className={styles.doc__suggestions}>
         <h5 className={styles.doc__suggestions__title}>All Suggestions</h5>
         <div className={styles.doc__suggestions__inactive}>
+          <button onClick={()=>{HandleCheckText(text as string,setTextSuggest);setText(textSuggest)}}>Correct</button>
           <img className={styles.doc__suggestions__inactive__img} src="https://baza-wiedzy.bhpin.pl/wp-content/uploads/2023/05/undraw_My_password_re_ydq7.png" alt="" />
         </div>
       </div>

@@ -8,12 +8,13 @@ interface TextCheckRequests {
 export async function POST(req : Request) {
     const {text}:TextCheckRequests = await req.json()
     const configuration = new Configuration({
-        apiKey: process.env.OPENAI_SECRET_KEY,
-      });
-      const openai = new OpenAIApi(configuration);
+      apiKey: process.env.OPENAI_SECRET_KEY,
+    });
+    const openai = new OpenAIApi(configuration);
 
-      const prompt:string = "You will be provided with statements, and your task is to convert them to standard English"
-      
+    const prompt:string = "You will be provided with statements, and your task to check grammar of words"
+    
+    if (text){
       const response = await openai.createChatCompletion({
         model: "gpt-3.5-turbo",
         messages: [
@@ -23,7 +24,7 @@ export async function POST(req : Request) {
           },
           {
             "role": "user",
-            "content": text
+            "content": `${text}`
           },
         ],
         temperature: 0,
@@ -33,4 +34,8 @@ export async function POST(req : Request) {
         presence_penalty: 0,
       });
    return NextResponse.json({success: response.data.choices[0].message?.content})
+    }
+    else{
+      return NextResponse.json({error: 'No content'})
+    }
 }
