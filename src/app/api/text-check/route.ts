@@ -12,15 +12,15 @@ export async function POST(req : Request) {
     });
     const openai = new OpenAIApi(configuration);
 
-    const prompt:string = "You will be provided with statements, and your task to check grammar of words"
+    const promptGrammar:string = "You will be provided with statements, and your task to check grammar of words"
     
     if (text){
-      const response = await openai.createChatCompletion({
+      const responseGrammar = await openai.createChatCompletion({
         model: "gpt-3.5-turbo",
         messages: [
           {
             "role": "system",
-            "content": prompt
+            "content": promptGrammar
           },
           {
             "role": "user",
@@ -33,7 +33,12 @@ export async function POST(req : Request) {
         frequency_penalty: 0,
         presence_penalty: 0,
       });
-   return NextResponse.json({success: response.data.choices[0].message?.content})
+      if (responseGrammar.data.choices[0].message?.content==text){
+        return NextResponse.json({success: {correct: true, text: responseGrammar.data.choices[0].message?.content}})
+      }
+      else{
+        return NextResponse.json({success: {correct: false, text: responseGrammar.data.choices[0].message?.content}})
+      }
     }
     else{
       return NextResponse.json({error: 'No content'})

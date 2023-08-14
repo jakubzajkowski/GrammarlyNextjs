@@ -10,6 +10,7 @@ import Link from "next/link"
 import SidebarDocument from "./components/SidebarDocument"
 import {AnimatePresence} from 'framer-motion'
 import { HandleCheckText } from "@/app/helpers/CheckText"
+import CorrectText from "./components/CorrectText"
 
 
 interface DocsProps {
@@ -23,6 +24,7 @@ const Doc: React.FC<DocsProps>= ({params}) => {
   const {document,error,isLoading} = useDocument(params.user_id,params.id)
   const [text,setText]:[undefined | string | Element, React.Dispatch<React.SetStateAction<undefined | string | Element>>] = useState()
   const [textSuggest,setTextSuggest]:[undefined | string, React.Dispatch<React.SetStateAction<undefined | string >>] = useState()
+  const [correct,setCorrect]:[boolean, React.Dispatch<React.SetStateAction<boolean>>] = useState(true)
   const [title,setTitle]:[undefined | string, React.Dispatch<React.SetStateAction<undefined | string>>] = useState()
   const textRef = useRef<any>(null)
   const [isSidebar,setIsSidebar]=useState(false)
@@ -34,7 +36,12 @@ const Doc: React.FC<DocsProps>= ({params}) => {
 
   useEffect(()=>{
       HandleSaveDocument(params.user_id,params.id,title as string,text as string)
+      console.log(text)
   },[text,title])
+
+  const handleCorrection = ():void=>{
+    HandleCheckText(text as string,setTextSuggest,setCorrect)
+  }
 
   const handleChange = (evt:any) => {
     setText(evt.target.value);
@@ -65,9 +72,9 @@ const Doc: React.FC<DocsProps>= ({params}) => {
       </div>
       <div className={styles.doc__suggestions}>
         <h5 className={styles.doc__suggestions__title}>All Suggestions</h5>
-        <div className={styles.doc__suggestions__inactive}>
-          <button onClick={()=>{HandleCheckText(text as string,setTextSuggest);setText(textSuggest)}}>Correct</button>
-          <img className={styles.doc__suggestions__inactive__img} src="https://baza-wiedzy.bhpin.pl/wp-content/uploads/2023/05/undraw_My_password_re_ydq7.png" alt="" />
+        <button onClick={handleCorrection} className={styles.doc__suggestions__btn}>Check Correct</button>
+        <div className={styles.doc__suggestions__active}>
+          {correct ? <><img className={styles.doc__suggestions__active__img} src="https://baza-wiedzy.bhpin.pl/wp-content/uploads/2023/05/undraw_My_password_re_ydq7.png" alt="correct" /><h5 className={styles.doc__suggestions__active__message}>No Correction Your Grammar is Good!</h5></> : <CorrectText text={textSuggest as string} mistakeText={text as string} setMistakeText={setText} setCorrect={setCorrect} setText={setTextSuggest}/>}
         </div>
       </div>
     </div>

@@ -1,0 +1,39 @@
+$boxShadowColor: rgb(207, 207, 207);
+
+@mixin btn($bgColor,$color){
+    padding: 0.5rem;
+    background-color: $bgColor;
+    border: none;
+    color: $color;
+    border-radius: 0.5rem;
+    margin: 0 0.5rem 0 0;
+}
+
+.correct_text__container{
+    -webkit-box-shadow: 0px 0px 6px 1px $boxShadowColor;
+    padding: 1rem;
+    margin: 1rem 0;
+    -moz-box-shadow: 0px 0px 6px 1px $boxShadowColor;
+    box-shadow: 0px 0px 6px 1px $boxShadowColor;
+    border-radius: 0.5rem;
+    .correct_text__container__header{
+        color: grey;
+        display: flex;
+        .correct_text__container__header__icon{
+            width: 20px;
+            height: 20px;
+            fill: red;
+            vertical-align: middle;
+            margin: 0.1rem 0.3rem;
+        }
+    }
+    .correct_text__container__footer{
+        margin: 1rem 0 0 0;
+        .correct_text__container__btn__accept{
+            @include btn(blue,white)
+        }
+        .correct_text__container__btn{
+            @include btn(white,grey)
+        }
+    }
+}

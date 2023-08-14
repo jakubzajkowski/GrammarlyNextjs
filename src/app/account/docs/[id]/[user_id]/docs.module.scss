@@ -5,6 +5,14 @@ $boxShadowColor: rgb(207, 207, 207);
       margin: 1cm; /* Adjust the margin value as needed */
     }
   }
+@mixin btn($bgColor,$color){
+    padding: 0.5rem;
+    background-color: $bgColor;
+    border: none;
+    color: $color;
+    border-radius: 0.5rem;
+    margin: 0 0.5rem 0 0;
+}
 .doc{
     width: 100%;
     display: flex;
@@ -41,7 +49,7 @@ $boxShadowColor: rgb(207, 207, 207);
         }
     }
     .doc__document{
-        width: 40%;
+        width: 45%;
         display: flex;
         flex-direction: column;
 
@@ -77,20 +85,29 @@ $boxShadowColor: rgb(207, 207, 207);
         }
     }
     .doc__suggestions{
-        width: 30%;
+        width: 35%;
         padding: 1rem;
         .doc__suggestions__title{
             font-size: 1rem;
             font-weight: bold;
         }
-        .doc__suggestions__inactive{
+        .doc__suggestions__btn{
+            @include btn(rgb(3, 190, 223),white)
+        }
+        .doc__suggestions__active{
             width: 100%;
             display: flex;
+            flex-direction: column;
             justify-content: center;
-            .doc__suggestions__inactive__img{
+            .doc__suggestions__active__img{
                 width: 90%;
                 padding: 1rem;
                 margin: 6rem 0;
+            }
+            .doc__suggestions__active__message{
+                font-size: 1rem;
+                font-weight: bold;
+                text-align: center;
             }
         }
     }
