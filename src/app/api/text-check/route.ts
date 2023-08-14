@@ -12,7 +12,7 @@ export async function POST(req : Request) {
     });
     const openai = new OpenAIApi(configuration);
 
-    const promptGrammar:string = "You will be provided with statements, and your task to check grammar of words"
+    const promptGrammar:string = "You will be provided with statements, and your task to check grammar of words if grammar is right write the same provided text"
     
     if (text){
       const responseGrammar = await openai.createChatCompletion({
