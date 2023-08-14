@@ -49,6 +49,10 @@ const Doc: React.FC<DocsProps>= ({params}) => {
     setText(evt.target.value);
   };
 
+  const handleDoubleClick=():void=>{
+    console.log(window.getSelection()?.toString())
+  }
+
   if (isLoading && ! document) return <Loading />
 
   if (error) return <div>{error}</div>
@@ -64,6 +68,7 @@ const Doc: React.FC<DocsProps>= ({params}) => {
         <input type="text" className={styles.doc__document__title} placeholder={title} onChange={(e)=>setTitle(e.target.value)}/>
         <TextCustomBar textRef={textRef}/>
         <ContentEditable
+              onDoubleClick={handleDoubleClick}
               id="content"
               innerRef={textRef}
               html={text ? (text as string) : ''}   
