@@ -71,7 +71,7 @@ const Doc: React.FC<DocsProps>= ({params}) => {
     setWordToCheck(window.getSelection()?.toString())
   }
 
-  if (isLoading && !document && !isLogged) return <Loading />
+  if (isLoading && !document) return <Loading />
 
   if (error) return <div>{error}</div>
 

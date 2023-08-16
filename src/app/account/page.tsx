@@ -24,6 +24,7 @@ export default function Account() {
         return <div className={styles.account}>
             <Sidebar email={data?.email} />
             <div className={styles.account__content}>
+                <h1 style={{fontWeight:'bold'}}>Documents</h1>
                 <input placeholder='Search...' className={styles.account__content__search} type="text" />
                 <div className={styles.account__content__docs}>
                     <NewDoc _id={data._id}/>

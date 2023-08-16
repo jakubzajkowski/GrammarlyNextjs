@@ -22,10 +22,6 @@ describe('Register',()=>{
         render(<Register />);
         expect(screen.getByText('I have an account')).toHaveAttribute('href','/login');
     })
-    test('test link',()=>{
-        render(<Register />);
-        expect(screen.getByText('I have an account')).toHaveAttribute('href','/login');
-    })
     test('test email',()=>{
         render(<Register />);
         const text : string = 'zaq12wsx'
