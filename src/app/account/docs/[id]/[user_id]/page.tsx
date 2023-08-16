@@ -11,7 +11,9 @@ import SidebarDocument from "./components/SidebarDocument"
 import {AnimatePresence} from 'framer-motion'
 import { HandleCheckText } from "@/app/helpers/CheckText"
 import CorrectText from "./components/CorrectText"
-import CircularProgress from '@mui/material/CircularProgress';
+import CircularProgress from '@mui/material/CircularProgress'
+import { HandleCheckWord } from "@/app/helpers/CheckSynonyms"
+import SynonymsWords from "./components/SynonymsWords"
 
 
 interface DocsProps {
@@ -25,8 +27,11 @@ const Doc: React.FC<DocsProps>= ({params}) => {
   const {document,error,isLoading} = useDocument(params.user_id,params.id)
   const [text,setText]:[undefined | string | Element, React.Dispatch<React.SetStateAction<undefined | string | Element>>] = useState()
   const [textSuggest,setTextSuggest]:[undefined | string, React.Dispatch<React.SetStateAction<undefined | string >>] = useState()
+  const [wordSuggest,setWordSuggest]:[undefined | string, React.Dispatch<React.SetStateAction<undefined | string >>] = useState()
+  const [wordToCheck,setWordToCheck]:[undefined | string, React.Dispatch<React.SetStateAction<undefined | string >>] = useState()
   const [correct,setCorrect]:[boolean, React.Dispatch<React.SetStateAction<boolean>>] = useState(true)
-  const [loading,setLoading]:[boolean, React.Dispatch<React.SetStateAction<boolean>>] = useState(false)
+  const [correctLoading,setCorrectLoading]:[boolean, React.Dispatch<React.SetStateAction<boolean>>] = useState(false)
+  const [synonymsLoading,setSynonymsLoading]:[boolean, React.Dispatch<React.SetStateAction<boolean>>] = useState(false)
   const [title,setTitle]:[undefined | string, React.Dispatch<React.SetStateAction<undefined | string>>] = useState()
   const textRef = useRef<any>(null)
   const [isSidebar,setIsSidebar]=useState(false)
@@ -42,7 +47,11 @@ const Doc: React.FC<DocsProps>= ({params}) => {
   },[text,title])
 
   const handleCorrection = ():void=>{
-    HandleCheckText(text as string,setTextSuggest,setCorrect,setLoading)
+    HandleCheckText(text as string,setTextSuggest,setCorrect,setCorrectLoading)
+  }
+
+  const handleSynonyms = ():void=>{
+    HandleCheckWord(wordToCheck as string,setWordSuggest,setSynonymsLoading)
   }
 
   const handleChange = (evt:any) => {
@@ -50,10 +59,10 @@ const Doc: React.FC<DocsProps>= ({params}) => {
   };
 
   const handleDoubleClick=():void=>{
-    console.log(window.getSelection()?.toString())
+    setWordToCheck(window.getSelection()?.toString())
   }
 
-  if (isLoading && ! document) return <Loading />
+  if (isLoading && !document) return <Loading />
 
   if (error) return <div>{error}</div>
 
@@ -79,9 +88,11 @@ const Doc: React.FC<DocsProps>= ({params}) => {
       </div>
       <div className={styles.doc__suggestions}>
         <h5 className={styles.doc__suggestions__title}>All Suggestions</h5>
-        <button onClick={handleCorrection} className={styles.doc__suggestions__btn}>Check Correct</button>
+        <button title="Check Grammar" onClick={handleCorrection} className={styles.doc__suggestions__btn}>Check Correct</button>
+        <button title="Double Click Word And Check" onClick={handleSynonyms} className={styles.doc__suggestions__btn}>Check Synonyms</button>
         <div className={styles.doc__suggestions__active}>
-          {loading ?  <CircularProgress style={{margin: '5rem auto 1rem auto'}}/> : (correct ? <><img className={styles.doc__suggestions__active__img} src="https://baza-wiedzy.bhpin.pl/wp-content/uploads/2023/05/undraw_My_password_re_ydq7.png" alt="correct" /><h5 className={styles.doc__suggestions__active__message}>No Correction Your Grammar is Good!</h5></> : <CorrectText text={textSuggest as string} mistakeText={text as string} setMistakeText={setText} setCorrect={setCorrect} setText={setTextSuggest}/>)}
+          {synonymsLoading ?  <CircularProgress style={{margin: '5rem auto 1rem auto'}}/> : wordSuggest && <SynonymsWords text={wordSuggest} setWordSuggest={setWordSuggest}/>}
+          {correctLoading ?  <CircularProgress style={{margin: '5rem auto 1rem auto'}}/> : (correct ? <><img className={styles.doc__suggestions__active__img} src="https://baza-wiedzy.bhpin.pl/wp-content/uploads/2023/05/undraw_My_password_re_ydq7.png" alt="correct" /><h5 className={styles.doc__suggestions__active__message}>No Correction Your Grammar is Good!</h5></> : <CorrectText text={textSuggest as string} mistakeText={text as string} setMistakeText={setText} setCorrect={setCorrect} setText={setTextSuggest}/>)}
         </div>
       </div>
     </div>

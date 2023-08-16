@@ -100,9 +100,10 @@ $boxShadowColor: rgb(207, 207, 207);
             flex-direction: column;
             justify-content: center;
             .doc__suggestions__active__img{
-                width: 90%;
+                width: 50%;
                 padding: 1rem;
-                margin: 6rem 0;
+                display: block;
+                margin: 6rem auto;
             }
             .doc__suggestions__active__message{
                 font-size: 1rem;
