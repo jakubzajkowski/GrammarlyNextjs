@@ -28,7 +28,7 @@ const useDocument = (_id:string, document_id: string)=>{
         }).catch(err=>setError(err))
     },[])
 
-    return {document,error,isLoading}
+    return {document,error,isLoading,setDocument}
 }
 
 export default useDocument

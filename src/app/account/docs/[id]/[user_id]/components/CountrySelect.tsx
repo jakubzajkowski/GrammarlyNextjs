@@ -8,7 +8,8 @@ interface CountryProps{
 
 export const Country:React.FC<CountryProps>=({userId})=>{
     const document = useContext(DocumentContext)
-    return (<select id="country" name="country" onChange={(e)=>HandleEditLanguage(userId,document?._id as string,e.target.value)} defaultValue={document?.language} style={{width:'35%',backgroundColor:'white',border:'none'}}>
+
+    return (<select id="country" name="country" onChange={(e)=>HandleEditLanguage(userId,document?.document._id as string,e.target.value,document?.setDocument)} defaultValue={document?.document.language} style={{width:'35%',backgroundColor:'white',border:'none'}}>
         <option value="American English">American English</option>
         <option value="British English">British English</option>
         <option value="Indian English">Indian English</option>
