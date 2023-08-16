@@ -1,9 +1,10 @@
 import axios from 'axios';
 
-export const HandleCheckText = (text:string,setTextSuggest:React.Dispatch<React.SetStateAction<undefined | string >>,setCorrect:React.Dispatch<React.SetStateAction<boolean>>,setLoading:React.Dispatch<React.SetStateAction<boolean>>)=>{
+export const HandleCheckText = (text:string,language: string,setTextSuggest:React.Dispatch<React.SetStateAction<undefined | string >>,setCorrect:React.Dispatch<React.SetStateAction<boolean>>,setLoading:React.Dispatch<React.SetStateAction<boolean>>)=>{
     setLoading(true)
     axios.post('/api/text-check',{
-        text: text
+        text: text,
+        language: language
     }).then(({data})=>{
         setLoading(false)
         if (data.error){

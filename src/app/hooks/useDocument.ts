@@ -7,6 +7,7 @@ interface DataType {
     text: string
     title: string
     _id: string
+    language: string
 }
 
 const useDocument = (_id:string, document_id: string)=>{

@@ -14,6 +14,7 @@ import CorrectText from "./components/CorrectText"
 import CircularProgress from '@mui/material/CircularProgress'
 import { HandleCheckWord } from "@/app/helpers/CheckSynonyms"
 import SynonymsWords from "./components/SynonymsWords"
+import { DocumentContext } from "./context/DocumentContext"
 
 
 interface DocsProps {
@@ -47,11 +48,11 @@ const Doc: React.FC<DocsProps>= ({params}) => {
   },[text,title])
 
   const handleCorrection = ():void=>{
-    HandleCheckText(text as string,setTextSuggest,setCorrect,setCorrectLoading)
+    HandleCheckText(text as string,document?.language as string,setTextSuggest,setCorrect,setCorrectLoading)
   }
 
   const handleSynonyms = ():void=>{
-    HandleCheckWord(wordToCheck as string,setWordSuggest,setSynonymsLoading)
+    HandleCheckWord(wordToCheck as string,document?.language as string,setWordSuggest,setSynonymsLoading)
   }
 
   const handleChange = (evt:any) => {
@@ -68,6 +69,7 @@ const Doc: React.FC<DocsProps>= ({params}) => {
 
   if (document) return (
     <div className={styles.doc}>
+      <DocumentContext.Provider value={document}>
       <AnimatePresence>{isSidebar && (<SidebarDocument setIsSidebar={setIsSidebar} textRef={textRef} title={title as string} />)}</AnimatePresence>
       <div className={styles.doc__sidebar__nav}>
         <Link href='/account'><svg className={styles.nav__logo} xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 512 512"><path d="M386.3 160H336c-17.7 0-32 14.3-32 32s14.3 32 32 32H464c17.7 0 32-14.3 32-32V64c0-17.7-14.3-32-32-32s-32 14.3-32 32v51.2L414.4 97.6c-87.5-87.5-229.3-87.5-316.8 0s-87.5 229.3 0 316.8s229.3 87.5 316.8 0c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0c-62.5 62.5-163.8 62.5-226.3 0s-62.5-163.8 0-226.3s163.8-62.5 226.3 0L386.3 160z"/></svg></Link>
@@ -95,6 +97,7 @@ const Doc: React.FC<DocsProps>= ({params}) => {
           {correctLoading ?  <CircularProgress style={{margin: '5rem auto 1rem auto'}}/> : (correct ? <><img className={styles.doc__suggestions__active__img} src="https://baza-wiedzy.bhpin.pl/wp-content/uploads/2023/05/undraw_My_password_re_ydq7.png" alt="correct" /><h5 className={styles.doc__suggestions__active__message}>No Correction Your Grammar is Good!</h5></> : <CorrectText text={textSuggest as string} mistakeText={text as string} setMistakeText={setText} setCorrect={setCorrect} setText={setTextSuggest}/>)}
         </div>
       </div>
+      </DocumentContext.Provider>
     </div>
   )
 }

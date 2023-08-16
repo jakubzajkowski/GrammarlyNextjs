@@ -3,17 +3,17 @@ import {Configuration, OpenAIApi} from "openai"
 
 interface TextCheckRequests {
     word: string
+    language: string
 }
 
 export async function POST(req : Request) {
-    const {word}:TextCheckRequests = await req.json()
+    const {word,language}:TextCheckRequests = await req.json()
     const configuration = new Configuration({
       apiKey: process.env.OPENAI_SECRET_KEY,
     });
     const openai = new OpenAIApi(configuration);
 
-    const promptGrammar:string = "You will be provided with word, and you will write synonyms of this word or words that can replace this word"
-    
+    const promptGrammar:string = `You will be provided with word in ${language}, and you will write synonyms of this word or words that can replace this word`
     if (word){
       const responseGrammar = await openai.createChatCompletion({
         model: "gpt-3.5-turbo",
