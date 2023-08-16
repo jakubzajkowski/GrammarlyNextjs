@@ -15,8 +15,9 @@ import CircularProgress from '@mui/material/CircularProgress'
 import { HandleCheckWord } from "@/app/helpers/CheckSynonyms"
 import SynonymsWords from "./components/SynonymsWords"
 import { DocumentContext } from "./context/DocumentContext"
-import axios from "axios"
-
+import { HandleTranslateText } from "@/app/helpers/TranslateText"
+import TranslateText from "./components/TranslateText"
+import useAuth from "@/app/hooks/useAuth"
 
 interface DocsProps {
   params: {
@@ -26,14 +27,17 @@ interface DocsProps {
 }
 
 const Doc: React.FC<DocsProps>= ({params}) => {
+  const {isLogged}=useAuth()
   const {document,error,isLoading,setDocument} = useDocument(params.user_id,params.id)
   const [text,setText]:[undefined | string | Element, React.Dispatch<React.SetStateAction<undefined | string | Element>>] = useState()
   const [textSuggest,setTextSuggest]:[undefined | string, React.Dispatch<React.SetStateAction<undefined | string >>] = useState()
   const [wordSuggest,setWordSuggest]:[undefined | string, React.Dispatch<React.SetStateAction<undefined | string >>] = useState()
   const [wordToCheck,setWordToCheck]:[undefined | string, React.Dispatch<React.SetStateAction<undefined | string >>] = useState()
+  const [translateText,setTranslateText]:[boolean, React.Dispatch<React.SetStateAction<boolean>>] = useState(false)
   const [correct,setCorrect]:[boolean, React.Dispatch<React.SetStateAction<boolean>>] = useState(true)
   const [correctLoading,setCorrectLoading]:[boolean, React.Dispatch<React.SetStateAction<boolean>>] = useState(false)
   const [synonymsLoading,setSynonymsLoading]:[boolean, React.Dispatch<React.SetStateAction<boolean>>] = useState(false)
+  const [translateLoading,setTranslateLoading]:[boolean, React.Dispatch<React.SetStateAction<boolean>>] = useState(false)
   const [title,setTitle]:[undefined | string, React.Dispatch<React.SetStateAction<undefined | string>>] = useState()
   const textRef = useRef<any>(null)
   const [isSidebar,setIsSidebar]=useState(false)
@@ -55,6 +59,10 @@ const Doc: React.FC<DocsProps>= ({params}) => {
     HandleCheckWord(wordToCheck as string,document?.language as string,setWordSuggest,setSynonymsLoading)
   }
 
+  const handleTranslate=():void=>{
+    HandleTranslateText(text as string,document?.language as string,setTranslateLoading,setText,setTranslateText)
+}
+
   const handleChange = (evt:any) => {
     setText(evt.target.value);
   };
@@ -63,9 +71,11 @@ const Doc: React.FC<DocsProps>= ({params}) => {
     setWordToCheck(window.getSelection()?.toString())
   }
 
-  if (isLoading && !document) return <Loading />
+  if (isLoading && !document && !isLogged) return <Loading />
 
   if (error) return <div>{error}</div>
+
+  if (!isLogged) return <div>You are not authorized</div>
 
   if (document) return (
     <div className={styles.doc}>
@@ -90,10 +100,12 @@ const Doc: React.FC<DocsProps>= ({params}) => {
       </div>
       <div className={styles.doc__suggestions}>
         <h5 className={styles.doc__suggestions__title}>All Suggestions</h5>
-        <button title="Check Grammar" onClick={handleCorrection} className={styles.doc__suggestions__btn}>Check Correct</button>
+        <button title="Click To Check Grammar" onClick={handleCorrection} className={styles.doc__suggestions__btn__red}>Check Correct</button>
         <button title="Double Click Word And Check" onClick={handleSynonyms} className={styles.doc__suggestions__btn}>Check Synonyms</button>
+        <button title="Click To Translate Text To Your Selected Language" onClick={handleTranslate} className={styles.doc__suggestions__btn__green}>Translate to Your Language</button>
         <div className={styles.doc__suggestions__active}>
           {synonymsLoading ?  <CircularProgress style={{margin: '5rem auto 1rem auto'}}/> : wordSuggest && <SynonymsWords text={wordSuggest} setWordSuggest={setWordSuggest}/>}
+          {translateLoading ?  <CircularProgress style={{margin: '5rem auto 1rem auto'}}/> : translateText && <TranslateText language={document.language} setTranslate={setTranslateText}/>}
           {correctLoading ?  <CircularProgress style={{margin: '5rem auto 1rem auto'}}/> : (correct ? <><img className={styles.doc__suggestions__active__img} src="https://baza-wiedzy.bhpin.pl/wp-content/uploads/2023/05/undraw_My_password_re_ydq7.png" alt="correct" /><h5 className={styles.doc__suggestions__active__message}>No Correction Your Grammar is Good!</h5></> : <CorrectText text={textSuggest as string} mistakeText={text as string} setMistakeText={setText} setCorrect={setCorrect} setText={setTextSuggest}/>)}
         </div>
       </div>

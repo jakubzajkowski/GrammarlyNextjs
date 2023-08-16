@@ -13,7 +13,7 @@ export async function POST(req : Request) {
     });
     const openai = new OpenAIApi(configuration);
 
-    const promptGrammar:string = `You will be provided with statements in ${language}, and your task to check grammar of words do not change html brackets, if grammar is right write the same provided text`
+    const promptGrammar:string = `You will be provided with statements, Your task is to translate this sentence in html brackets to ${language} do not change html brackets`
     if (text){
       const responseGrammar = await openai.createChatCompletion({
         model: "gpt-3.5-turbo",
@@ -33,12 +33,7 @@ export async function POST(req : Request) {
         frequency_penalty: 0,
         presence_penalty: 0,
       });
-      if (responseGrammar.data.choices[0].message?.content==text){
-        return NextResponse.json({success: {correct: true, text: responseGrammar.data.choices[0].message?.content}})
-      }
-      else{
-        return NextResponse.json({success: {correct: false, text: responseGrammar.data.choices[0].message?.content}})
-      }
+        return NextResponse.json({success: {text: responseGrammar.data.choices[0].message?.content}})
     }
     else{
       return NextResponse.json({error: 'No content'})
