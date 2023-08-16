@@ -22,6 +22,7 @@ export async function POST(req : Request) {
           title : user.trashs[0].title,
           text : user.trashs[0].text,
           status: user.trashs[0].status,
+          language: user.trashs[0].language,
           }
       } })
     return NextResponse.json({status: 'restored'})

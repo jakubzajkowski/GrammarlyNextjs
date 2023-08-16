@@ -22,6 +22,7 @@ export async function POST(req : Request) {
           title : user.documents[0].title,
           text : user.documents[0].text,
           status: user.documents[0].status,
+          language: user.documents[0].language,
           }
       } })
     return NextResponse.json({status: 'deleted'})

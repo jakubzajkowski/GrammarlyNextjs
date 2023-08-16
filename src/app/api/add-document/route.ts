@@ -16,6 +16,7 @@ export async function POST(req : Request) {
             title : 'Untitled Document',
             text : '',
             status: 'created',
+            language: 'American English'
             }
         } 
     } 

@@ -13,6 +13,7 @@ const userSchema = new mongoose.Schema({
   trashs : [{
     title : String,
     text : String,
+    language: String,
     date : {
       type : Date,
       default : Date.now
@@ -22,6 +23,7 @@ const userSchema = new mongoose.Schema({
   documents : [{
     title : String,
     text : String,
+    language: String,
     date : {
       type : Date,
       default : Date.now
