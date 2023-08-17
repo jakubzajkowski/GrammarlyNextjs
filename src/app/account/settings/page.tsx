@@ -7,6 +7,7 @@ import Sidebar from '../components/Sidebar'
 import styles from './settings.module.scss'
 import SettingsModal from './components/SettingsModal'
 import { SettingsList } from './components/lists/setting'
+import LinearProgress, { LinearProgressProps } from '@mui/material/LinearProgress';
 
 const Settings: React.FC = () => {
     const {isLogged,error,isLoading} = useAuth()
@@ -39,6 +40,10 @@ const Settings: React.FC = () => {
                 <div className={styles.settings__profile__section}>
                     <p className={styles.settings__profile__section__title}>Password</p>
                     <p>{data.password} <span onClick={()=>{setModal('Update Password');setIsModal(true)}} className={styles.settings__profile__section__btn}>Update</span></p>
+                </div>
+                <div className={styles.settings__profile__section}>
+                    <p className={styles.settings__profile__section__title}>Ai Prompts</p>
+                    <LinearProgress variant="determinate" value={1000} style={{width:'50%'}}/>
                 </div>
                 <hr />
                 <div className={styles.settings__profile__section}>

@@ -52,15 +52,15 @@ const Doc: React.FC<DocsProps>= ({params}) => {
   },[text,title,correct])
 
   const handleCorrection = ():void=>{
-    HandleCheckText(text as string,document?.language as string,setTextSuggest,setCorrect,setCorrectLoading)
+    HandleCheckText(text as string,document?.language as string,setTextSuggest,setCorrect,setCorrectLoading,params.user_id)
   }
 
   const handleSynonyms = ():void=>{
-    HandleCheckWord(wordToCheck as string,document?.language as string,setWordSuggest,setSynonymsLoading)
+    HandleCheckWord(wordToCheck as string,document?.language as string,setWordSuggest,setSynonymsLoading,params.user_id)
   }
 
   const handleTranslate=():void=>{
-    HandleTranslateText(text as string,document?.language as string,setTranslateLoading,setText,setTranslateText)
+    HandleTranslateText(text as string,document?.language as string,setTranslateLoading,setText,setTranslateText,params.user_id)
 }
 
   const handleChange = (evt:any) => {

@@ -18,7 +18,7 @@ export async function POST(req : Request) {
     }
     else{
       const hash = bcrypt.hashSync(password, 10);
-      const user = new User({ password:hash, name:name, email:email});
+      const user = new User({ password:hash, name:name, email:email,plan:'free',prompts:0});
       user.save()
       return NextResponse.json({ status: 'success' });
     }

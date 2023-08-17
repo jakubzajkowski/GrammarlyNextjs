@@ -10,8 +10,7 @@ import usePolling from '../hooks/usePolling';
 import { HandleDeleteDocument } from '@/app/helpers/DeleteDocument'
 
 
-
-export default function Account() {
+const Account:React.FC=()=>{
     const {isLogged,error,isLoading} = useAuth()
     const {data,errorPoll} = usePolling()
     if (error) {
@@ -34,6 +33,8 @@ export default function Account() {
         </div>
     }
 }
+
+export default Account
 
 
 

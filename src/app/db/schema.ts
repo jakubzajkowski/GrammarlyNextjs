@@ -10,6 +10,12 @@ const userSchema = new mongoose.Schema({
   password: {
     type: String,
   },
+  prompts: {
+    type: Number,
+  },
+  plan: {
+    type: String,
+  },
   trashs : [{
     title : String,
     text : String,

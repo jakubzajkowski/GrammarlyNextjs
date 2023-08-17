@@ -13,7 +13,7 @@ interface CorrectTextProps {
 const CorrectText:React.FC<CorrectTextProps> = ({text,setText,setMistakeText,mistakeText,setCorrect}) => {
     const refCorrectText=useRef<any>(null)
     useEffect(()=>{
-        refCorrectText.current.innerHTML=`${text.slice(0,300)}...`
+        refCorrectText.current.innerHTML=`${text.slice(0,500)}...`
     },[])
     const handleCorrectTextAccept=():void=>{
         setMistakeText(text)
