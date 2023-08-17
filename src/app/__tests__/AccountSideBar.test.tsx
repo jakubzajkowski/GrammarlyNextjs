@@ -36,7 +36,7 @@ describe('AccountSidebar',()=>{
                 expect(link).toHaveAttribute('href', '/account/apps')
             }
             if (index==5){
-                expect(link).toHaveAttribute('href', '/plans')
+                expect(link).toHaveAttribute('href', '/account/plans')
             }
             if (index==6){
                 expect(link).toHaveAttribute('href', '/support')

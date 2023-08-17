@@ -22,6 +22,8 @@ interface dataType {
     name: string,
     email: string,
     password: string,
+    prompts:number,
+    plan: string,
     __v: number,
     documents: dataDocumnetsType[]
     trashs:dataTrashType[]

@@ -1,0 +1,13 @@
+.plans{
+    width: 100%;
+    .plans__main{
+        margin: 0 0 0 15%;
+        padding: 3rem;
+        .plans__container{
+            display: flex;
+            width: 100%;
+            margin: 3rem 0 0 0;
+            justify-content: space-between;
+        }
+    }
+}

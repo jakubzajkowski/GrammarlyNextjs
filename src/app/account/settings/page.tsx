@@ -43,7 +43,8 @@ const Settings: React.FC = () => {
                 </div>
                 <div className={styles.settings__profile__section}>
                     <p className={styles.settings__profile__section__title}>Ai Prompts</p>
-                    <LinearProgress variant="determinate" value={1000} style={{width:'50%'}}/>
+                    <LinearProgress variant="determinate" value={Math.floor((data.prompts/(data.plan=='buisness' ? 20000 : (data.plan=='free' ? 1000 : 10000)))*100)} style={{width:'50%',display:'inline-block',height:'8px'}}/>
+                    <p className={styles.settings__profile__section__prompts}><span style={{fontWeight:'bold'}}>{data.prompts}</span> / {(data.plan=='buisness' ? 20000 : (data.plan=='free' ? 1000 : 10000))}</p>
                 </div>
                 <hr />
                 <div className={styles.settings__profile__section}>

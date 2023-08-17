@@ -1,0 +1,35 @@
+@mixin btn($color, $background){
+    padding: 0.5rem 3rem;
+    background-color: $background;
+    border: none;
+    border-radius: 0.3rem;
+    margin: 0.2rem 0;
+    color: $color;
+    font-size: 1rem;
+    font-weight: bold;
+}
+
+.plan{
+    width: 30%;
+    .plan__header{
+        font-size: 0.7rem;
+        color: grey;
+    }
+    .plan__name{
+        font-weight: bold;
+    }
+    .plan__btn__select__plan{
+        @include btn(white,rgb(0, 165, 129))
+    }
+    .plan__btn{
+        @include btn(rgb(141, 141, 141),rgb(221, 228, 235))
+    }
+    .plan__functions{
+        font-size: 0.8rem;
+        margin: 0.5rem 0;
+        .plan__icons{
+            fill: rgb(153, 228, 15);
+            margin: 0 0.5rem 0 0;
+        }
+    }
+}
