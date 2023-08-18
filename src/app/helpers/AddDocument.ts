@@ -8,5 +8,6 @@ export const HandleAddDocument = (_id:string)=>{
         if (data.error){
             console.log(data)
         }
+        window.location.href=`/account/docs/${data.documentId}/${data._id}`
     }).catch(err=>console.log(err))
 }

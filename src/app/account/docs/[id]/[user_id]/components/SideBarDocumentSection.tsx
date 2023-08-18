@@ -2,15 +2,17 @@ import styles from './sidebardocument.module.scss'
 import React,{useEffect, useState} from 'react'
 import ReactToPrint from 'react-to-print';
 import axios from 'axios'
+import { HandleAddDocument } from '@/app/helpers/AddDocument'
 
 interface SideBarDocumentSectionProps {
     icon: React.ReactElement
     text: string
     textRef: any
     title: string
+    _id: string
 }
 
-const SideBarDocumentSection:React.FC<SideBarDocumentSectionProps>=({text,icon,textRef,title})=>{
+const SideBarDocumentSection:React.FC<SideBarDocumentSectionProps>=({text,icon,textRef,title,_id})=>{
     const [selectedFile, setSelectedFile] = useState<File | null>(null);
     const handleFileUpload = async (file: File) => {
       const formData = new FormData();
@@ -74,7 +76,7 @@ const SideBarDocumentSection:React.FC<SideBarDocumentSectionProps>=({text,icon,t
   )
   else{
     return (
-        <div className={styles.sidebar__document__container}>
+        <div className={styles.sidebar__document__container} onClick={()=>HandleAddDocument(_id)}>
             {icon}
             <p className={styles.sidebar__document__close__text}>{text}</p>
         </div>

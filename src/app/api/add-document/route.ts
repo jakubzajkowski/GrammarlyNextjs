@@ -21,5 +21,7 @@ export async function POST(req : Request) {
         } 
     } 
     )
-    return NextResponse.json({status: 'added'})
+    const document = await User.find({ '_id': _id}).select('documents')
+    const documentId = document[0].documents[document[0].documents.length-1]._id
+    return NextResponse.json({status: 'added',documentId:documentId,_id:_id})
   }
