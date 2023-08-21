@@ -11,6 +11,9 @@
 
 .plan{
     width: 25%;
+    @media (max-width:950px) {
+        width: 100%;
+    }
     .plan__header{
         font-size: 0.7rem;
         color: grey;

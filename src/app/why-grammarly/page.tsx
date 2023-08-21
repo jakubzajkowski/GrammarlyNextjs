@@ -1,7 +1,7 @@
 "use client"
 import styles from './whygrammarly.module.scss'
 import Nav from "../components/Nav"
-import Link from 'next/link'
+import Footer from '../components/Footer'
 import GrammarlyStartSection from '../components/grammarlyStartSection'
 
 interface SectionType {
@@ -26,6 +26,9 @@ const WhyGrammarly: React.FC=()=>{
     return <div className={styles.why_gammarly}>
         <Nav />
         <GrammarlyStartSection title={section.title} text={section.text} content={section.content} src={section.src} bgColor={section.bgColor} color={section.color}/>
+        <h3 className={styles.home__work__heading}>What is communication assistance?</h3>
+        <p className={styles.home__work__info}>Grammarly leads the industry in building AI-enabled products to help people communicate effectively every day. With our AI assistant, GrammarlyGO, and advanced writing suggestions, you can accelerate your writing process, champion your voice, build connections, and spur your academic or professional growth. Communication assistance with Grammarly means a consistent experience of robust, real-time feedback on your writing across:</p>
+        <Footer />
     </div>
 }
 

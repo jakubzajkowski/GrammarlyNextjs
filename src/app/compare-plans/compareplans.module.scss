@@ -3,9 +3,9 @@
 $color: global.$color;
 $mobile: global.$mobile;
 
-.why_gammarly{
+.comapre_plans{
     width: 100%;
-    .home__work__heading{
+    .comapre_plans__heading{
         font-weight: bold;
         text-align: center;
         font-size: 3rem;
@@ -15,11 +15,12 @@ $mobile: global.$mobile;
             font-size: 2rem;
         }
     }
-    .home__work__info{
-        width: 40%;
-        margin: 3rem auto;
-        font-size: 1.2rem;
-        text-align: center;
+    .comapre_plans__container{
+        flex-wrap: wrap;
+        display: flex;
+        justify-content: space-between;
+        width: 60%;
+        margin: 2rem auto 3rem auto;
         @media(max-width: $mobile) {
             width: 90%;
         }

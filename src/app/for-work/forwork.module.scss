@@ -3,9 +3,9 @@
 $color: global.$color;
 $mobile: global.$mobile;
 
-.why_gammarly{
+.forwork{
     width: 100%;
-    .home__work__heading{
+    .forwork__work__heading{
         font-weight: bold;
         text-align: center;
         font-size: 3rem;
@@ -15,13 +15,23 @@ $mobile: global.$mobile;
             font-size: 2rem;
         }
     }
-    .home__work__info{
+    .forwork__work__info{
         width: 40%;
         margin: 3rem auto;
         font-size: 1.2rem;
         text-align: center;
         @media(max-width: $mobile) {
             width: 90%;
+        }
+    }
+    .forwork__icon{
+        margin: 1rem auto 3rem auto;
+        display: flex;
+        width: 25%;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        @media(max-width: $mobile) {
+            width: 80%;
         }
     }
 }

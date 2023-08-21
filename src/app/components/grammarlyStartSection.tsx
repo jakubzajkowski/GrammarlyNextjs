@@ -25,7 +25,7 @@ const GrammarlyStartSection:React.FC<GrammarlyStartSectionProps> = ({text,title,
             </div>
             <div className={styles.start__main__right}>
                 {content=='img' ? 
-                <img src={src} alt='grammarly' loading='lazy'/> 
+                <img className={styles.start__main__right__video} src={src} alt='grammarly' loading='lazy'/> 
                 :
                 <video className={styles.start__main__right__video} autoPlay loop muted>
                     <source data-testid='vid-start' src={src} type="video/mp4"/>
