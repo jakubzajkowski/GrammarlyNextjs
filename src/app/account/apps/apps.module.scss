@@ -3,5 +3,30 @@
     .apps__content{
         margin: 0 0 0 15%;
         padding: 3rem;
+        .apps__content__container{
+            margin: 2rem 0;
+            padding: 1rem;
+            border-radius: 0.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            -webkit-box-shadow: 0px 0px 2px 1px rgba(185, 185, 185, 1);
+            -moz-box-shadow: 0px 0px 2px 1px rgba(185, 185, 185, 1);
+            box-shadow: 0px 0px 2px 1px rgba(185, 185, 185, 1);
+            .apps__content__container__btn{
+                display: block;
+                padding: 0rem 0.5rem;
+                height: 3rem;
+                background-color: rgb(0, 141, 206);
+                color: white;
+                border-radius: 0.5rem;
+                border: none;
+                font-size: 0.9rem;
+                font-weight: bold;
+            }
+        }
     }
+}
+.apps__content__container__title{
+    font-weight: bold;
 }
