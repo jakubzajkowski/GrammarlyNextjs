@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 export const HandleRestoreTrashDocument = (_id:string,documentId:string)=>{
-    axios.post('/api/trash-restore-document',{
+    axios.post(`${process.env.NEXT_PUBLIC_URI}/trash-restore-document`,{
         _id: _id,
         documentId: documentId
     }).then(({data})=>{

@@ -2,7 +2,7 @@ import axios from 'axios';
 
 export const HandleCheckText = (text:string,language: string,setTextSuggest:React.Dispatch<React.SetStateAction<undefined | string >>,setCorrect:React.Dispatch<React.SetStateAction<boolean>>,setLoading:React.Dispatch<React.SetStateAction<boolean>>,_id:string)=>{
     setLoading(true)
-    axios.post('/api/text-check',{
+    axios.post(`${process.env.NEXT_PUBLIC_URI}/text-check`,{
         text: text,
         language: language,
         _id:_id

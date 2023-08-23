@@ -17,7 +17,7 @@ const useDocument = (_id:string, document_id: string)=>{
 
     useEffect(()=>{
         setIsLoading(true)
-        axios.get(`/api/document/${_id}/${document_id}`).then(({data})=>{
+        axios.get(`${process.env.NEXT_PUBLIC_URI}/document/${_id}/${document_id}`).then(({data})=>{
             if(data.error){
                 setError('Your Are Not Authorized')
             }

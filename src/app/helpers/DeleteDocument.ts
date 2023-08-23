@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 export const HandleDeleteDocument = (_id:string,documentId:string)=>{
-    axios.post('/api/delete-document',{
+    axios.post(`${process.env.NEXT_PUBLIC_URI}/delete-document`,{
         _id: _id,
         documentId: documentId
     }).then(({data})=>{

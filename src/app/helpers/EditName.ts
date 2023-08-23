@@ -2,7 +2,7 @@ import axios from 'axios';
 import React from 'react';
 
 export const HandleEditName = (email: string,newName:string,errorServer:React.Dispatch<React.SetStateAction<string>>)=>{
-    axios.post('/api/edit-name',{
+    axios.post(`${process.env.NEXT_PUBLIC_URI}/edit-name`,{
         email: email,
         newName:newName
     }).then(({data})=>{

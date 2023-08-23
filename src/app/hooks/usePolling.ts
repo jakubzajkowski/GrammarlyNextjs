@@ -31,10 +31,10 @@ interface dataType {
 const usePolling = ()=>{
     const [errorPoll,setErrorPoll]=useState('')
     const [data,setData]: [dataType | undefined,React.Dispatch<React.SetStateAction<dataType | undefined>>]=useState()
-
     useEffect(()=>{
+        const token = localStorage.getItem('token');
         const poll = ():void=>{
-            axios.get('/api/user').then(({data})=>{
+            axios.get(`${process.env.NEXT_PUBLIC_URI}/user`,{headers:{Authorization: `Bearer ${token}`}}).then(({data})=>{
                 if(data.error){
                     setErrorPoll('Your Are Not Authorized')
                 }

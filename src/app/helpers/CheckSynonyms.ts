@@ -2,7 +2,7 @@ import axios from 'axios';
 
 export const HandleCheckWord = (word:string,language: string,setWordSuggest:React.Dispatch<React.SetStateAction<undefined | string >>,setLoading:React.Dispatch<React.SetStateAction<boolean>>,_id:string)=>{
     setLoading(true)
-    axios.post('/api/synonyms-check',{
+    axios.post(`${process.env.NEXT_PUBLIC_URI}/synonyms-check`,{
         word: word,
         language: language,
         _id:_id

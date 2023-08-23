@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 export const HandleSaveDocument = (_id:string,documentId:string,title:string,text:string)=>{
-    axios.post('/api/save-document',{
+    axios.post(`${process.env.NEXT_PUBLIC_URI}/save-document`,{
         _id: _id,
         documentId: documentId,
         title:title,

@@ -2,7 +2,7 @@ import axios from 'axios';
 import React from 'react';
 
 export const HandleSearchDocument = (_id:string,doc:string,setFilterData:React.Dispatch<React.SetStateAction<string>>)=>{
-    axios.post(`/api/search-document/${doc}`,{
+    axios.post(`${process.env.NEXT_PUBLIC_URI}/search-document/${doc}`,{
         _id: _id
     }).then(({data})=>{
         if (data.error){

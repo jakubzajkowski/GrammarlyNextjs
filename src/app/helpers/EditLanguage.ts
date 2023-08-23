@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 export const HandleEditLanguage = (_id:string,documentId:string,language:string,setDocument:React.Dispatch<any> | undefined)=>{
-    axios.post('/api/language-document',{
+    axios.post(`${process.env.NEXT_PUBLIC_URI}/language-document`,{
         _id: _id,
         documentId:documentId,
         language: language
@@ -10,7 +10,7 @@ export const HandleEditLanguage = (_id:string,documentId:string,language:string,
             console.log(data)
         }
     }).then(()=>{
-    axios.get(`/api/document/${_id}/${documentId}`).then(({data})=>{
+    axios.get(`${process.env.NEXT_PUBLIC_URI}/document/${_id}/${documentId}`).then(({data})=>{
         if (setDocument){
             setDocument(data)
         }

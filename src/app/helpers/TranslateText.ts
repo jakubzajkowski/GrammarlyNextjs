@@ -2,7 +2,7 @@ import axios from 'axios';
 
 export const HandleTranslateText = (text:string,language: string,setLoading:React.Dispatch<React.SetStateAction<boolean>>,setText:React.Dispatch<React.SetStateAction<string | Element | undefined>>,setTranslateText:React.Dispatch<React.SetStateAction<boolean>>,_id:string)=>{
     setLoading(true)
-    axios.post('/api/text-translate',{
+    axios.post(`${process.env.NEXT_PUBLIC_URI}/text-translate`,{
         text: text,
         language: language,
         _id:_id

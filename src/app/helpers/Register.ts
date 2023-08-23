@@ -2,7 +2,7 @@ import axios from 'axios';
 import React from 'react';
 
 export const HandleRegister = (password: string,email: string,name: string,errorServer:React.Dispatch<React.SetStateAction<string>>)=>{
-    axios.post('/api/register',{
+    axios.post(`${process.env.NEXT_PUBLIC_URI}/register`,{
         password: password,
         email: email,
         name: name
