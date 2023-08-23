@@ -1,3 +1,5 @@
-export const HandleLogout = ()=>{
+const HandleLogout = ()=>{
     localStorage.removeItem('token');
 }
+
+export default HandleLogout
