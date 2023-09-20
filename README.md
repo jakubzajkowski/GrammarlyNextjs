@@ -14,6 +14,50 @@ Welcome to the Grammaly Clone App repository! This app is designed to provide us
 
 - **Text Translation:** The app supports translation of text into various languages, making it useful for multilingual users.
 
+## Desktop View
+
+### Home page
+
+<p align="center" style="margin-top: 30px;">
+  <img src="./imgs/screen0.JPG"/>
+</p>
+
+### Sign up page
+
+<p align="center" style="margin-top: 30px;">
+  <img src="./imgs/screen1.JPG"/>
+</p>
+
+### App page grammar check
+
+<p align="center" style="margin-top: 30px;">
+  <img src="./imgs/screen2.JPG"/>
+</p>
+
+### App page translate text
+
+<p align="center" style="margin-top: 30px;">
+  <img src="./imgs/screen3.JPG"/>
+</p>
+
+### App page synonyms check
+
+<p align="center" style="margin-top: 30px;">
+  <img src="./imgs/screen4.JPG"/>
+</p>
+
+### Account setting page
+
+<p align="center" style="margin-top: 30px;">
+  <img src="./imgs/screen5.JPG"/>
+</p>
+
+### Account setting page update email
+
+<p align="center" style="margin-top: 30px;">
+  <img src="./imgs/screen6.JPG"/>
+</p>
+
 ## Tech Stack
 
 - Frontend:
@@ -30,10 +74,6 @@ Welcome to the Grammaly Clone App repository! This app is designed to provide us
 ## Future Plans
 
 - **Mobile App:** While the current version of the app doesn't have a dedicated mobile layout, the future plan includes developing a React Native mobile app to provide a seamless experience for users on their phones.
-
-## Getting Started
-
-To access the Grammarly clone, simply visit our website at [] using any modern web browser. No additional installation or downloads are required.
 
 ## Contributing
 
